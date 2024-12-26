@@ -1,0 +1,32 @@
+name: Pull and update from 
+
+on:
+  repository_dispatch:
+    types: [trigger-workflow]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Pull Notes
+        uses: actions/checkout@v4
+        with:
+          repository: 'yungen-lu/obsidian-notes'
+          token: ${{ secrets.NOTE_TOKEN }}
+          path: ./tmp
+
+      - name: Sync files
+        run: |
+          rm -rf content
+          ls
+          ls ./tmp
+          cp -r ./tmp/Notes/Blog content
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: ${{ github.event.client_payload.message }}
+
