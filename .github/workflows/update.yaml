@@ -8,6 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -22,9 +25,8 @@ jobs:
       - name: Sync files
         run: |
           rm -rf content
-          ls
-          ls ./tmp
           cp -r ./tmp/Notes/Blog content
+          rm -rf ./tmp
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
