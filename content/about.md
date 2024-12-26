@@ -2,7 +2,7 @@
 title: About
 description: About
 date: 2024-12-26T12:40:03+08:00
-lastmod: 2024-12-26T14:07:50+08:00
+lastmod: 2024-12-27T04:30:22+08:00
 draft: false
 ---
 
@@ -33,6 +33,7 @@ Jan 2022 – Jun 2023
 - Led development of the gRPC API for backend microservices, increasing backend system fault tolerance
 - Increased maximum **concurrent users to over 5,000** by adopting Golang and NoSQL databases
 - Wrote unit tests, integration tests and load tests for chat service with over **90%** code coverage. Set up GitLab CI/CD to automate testing and building container images
+- Redesigned the user notification feature and optimized the click-through process, reducing interaction time by **20%** and enhancing user experience
 
 **Software Engineer Intern** @ [Intelligent Mobile Service Lab](https://www.imslab.org/)
 Jun 2022 – Jan 2023
