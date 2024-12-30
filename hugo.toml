@@ -3,6 +3,8 @@ languageCode = 'en-us'
 title = 'yungen'
 theme = 'hugo-theme-nostyleplease'
 
+[markup.highlight]
+    noClasses          = false
 [params]
   [params.theme_config]
     # appearance        = "dark"
