@@ -2,8 +2,11 @@
 title: Terraform short note
 description: A short note for Google Developer Student Club meetings
 date: 2023-02-26T00:00:00+08:00
-lastmod: 2024-12-27T23:42:15+08:00
+lastmod: 2024-12-28T11:11:00+08:00
 draft: false
+category: "[[Posts]]"
+tags:
+  - posts
 ---
 # Introduction
 

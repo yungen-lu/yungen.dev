@@ -2,8 +2,11 @@
 title: Code-Prettifyer project
 description: “Testing leads to failure, and failure leads to understanding.” - Burt Rutan
 date: 2021-01-11T00:00:00+08:00
-lastmod: 2024-12-27T13:33:20+08:00
+lastmod: 2024-12-28T11:11:53+08:00
 draft: false
+category: "[[Posts]]"
+tags:
+  - posts
 ---
 ## 前言
 

@@ -2,8 +2,11 @@
 title: kubernetes basics
 description: A short tutorial for selab
 date: 2022-03-09T00:00:00+08:00
-lastmod: 2024-12-27T23:02:36+08:00
+lastmod: 2024-12-28T11:11:35+08:00
 draft: false
+category: "[[Posts]]"
+tags:
+  - posts
 ---
 # Wow Docker 好方便！那他跟 kubernetes 差在哪裡？
 

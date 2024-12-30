@@ -2,8 +2,11 @@
 title: gRPC short note
 description: A note I wrote for AInimal meetings
 date: 2022-03-04T00:00:00+08:00
-lastmod: 2024-12-27T23:37:41+08:00
+lastmod: 2024-12-28T11:11:47+08:00
 draft: false
+category: "[[Posts]]"
+tags:
+  - posts
 ---
 # What is gRPC
 

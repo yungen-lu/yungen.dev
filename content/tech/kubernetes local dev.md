@@ -2,8 +2,11 @@
 title: kubernetes local dev
 description: A short note for Google Developer Student Club meetings
 date: 2022-11-29T00:00:00+08:00
-lastmod: 2024-12-27T00:23:31+08:00
+lastmod: 2024-12-28T11:11:24+08:00
 draft: false
+category: "[[Posts]]"
+tags:
+  - posts
 ---
 # Introduction
 

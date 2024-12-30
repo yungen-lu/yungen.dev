@@ -2,8 +2,11 @@
 title: traefik tutorial
 description: A traefik tutorial I wrote for AInimal meetings
 date: 2022-02-01T00:00:00+08:00
-lastmod: 2024-12-27T01:19:59+08:00
+lastmod: 2024-12-28T11:10:25+08:00
 draft: false
+category: "[[Posts]]"
+tags:
+  - posts
 ---
 # 前言
 

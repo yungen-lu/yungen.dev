@@ -2,8 +2,11 @@
 title: traefik & let’s encrypt
 description: A traefik & let's encrypt tutorial I wrote for AInimal meetings
 date: 2022-02-04T00:00:00+08:00
-lastmod: 2024-12-27T17:55:09+08:00
+lastmod: 2024-12-28T11:10:31+08:00
 draft: false
+category: "[[Posts]]"
+tags:
+  - posts
 ---
 # 前言
 
