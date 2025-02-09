@@ -2,7 +2,7 @@
 title: About
 description: About
 date: 2024-12-26T12:40:03+08:00
-lastmod: 2024-12-27T13:35:52+08:00
+lastmod: 2025-02-09T14:35:12+08:00
 draft: false
 ---
 
@@ -17,6 +17,10 @@ Sep 2024 – Jun 2026
 Sep 2021 – Jun 2024
 
 ### Work Experience
+
+**AI Engineer Intern** @ [PlayMa](https://maiagent.ai)
+Feb 2025 – Present
+
 **Software Engineer Intern** @ [Trend Micro](https://www.trendmicro.com/)
 Jul 2023 – Aug 2023
 
@@ -42,6 +46,7 @@ Jun 2022 – Jan 2023
 - Optimized website performance by minimizing render times and improving load speeds
 
 ### Research Experience
+
 **Research Assistant** @ Software Engineering and Intelligent Test Automation Lab
 Oct 2021 – Oct 2024
 
