@@ -2,12 +2,13 @@
 title: kubernetes local dev
 description: A short note for Google Developer Student Club meetings
 date: 2022-11-29T00:00:00+08:00
-lastmod: 2024-12-28T11:11:24+08:00
+lastmod: 2025-02-09T14:38:03+08:00
 draft: false
 category: "[[Posts]]"
 tags:
   - posts
 ---
+
 # Introduction
 
 在開發 kubernetes 相關的程式時為了確保程式能正確運行，需要一個 kubernetes 環境方便我們測試。我們不太可能每次測試都要另外開一個 gke ，太麻煩且浪費錢了，所以我們需要一些工具幫助我們在本地端架設 kubernetes cluster 來測試。
@@ -152,7 +153,7 @@ kubectl apply -f kubernetes.yaml
 
 ## 安裝 skaffold
 
-參考[官網](https://skaffold.dev/docs/install/)
+參考 [官網](https://skaffold.dev/docs/install/)
 
 ## 指令
 

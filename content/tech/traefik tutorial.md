@@ -2,12 +2,13 @@
 title: traefik tutorial
 description: A traefik tutorial I wrote for AInimal meetings
 date: 2022-02-01T00:00:00+08:00
-lastmod: 2024-12-28T11:10:25+08:00
+lastmod: 2025-02-09T14:36:26+08:00
 draft: false
 category: "[[Posts]]"
 tags:
   - posts
 ---
+
 # 前言
 
 當我們在架設後端 service 的時候很常會遇到要將 service A 和 service B 放在同一個伺服器中運行，這時候會遇到一個問題：要如何設置 Endpoint 讓使用者能分別使用 service A 與 service B 呢？
@@ -100,7 +101,7 @@ entryPoints:
     			- "traefik.http.routers.myrouter.rule=Host(`myserverdomainname.com`)"
     ```
     
-    以上範例為使用 `Host()` 來設置 rule ，其實還有許多方法 `Method()`、`Path()`...，更多方法可以參考[官網](https://doc.traefik.io/traefik/routing/routers/#rule)。
+    以上範例為使用 `Host()` 來設置 rule ，其實還有許多方法 `Method()`、`Path()`...，更多方法可以參考 [官網](https://doc.traefik.io/traefik/routing/routers/#rule)。
     
 3. Priority: 在設置 rule 時可能發生 request 同時滿足兩個 router 的 rule，這時後需要設定 Priority 才能決定 request 要轉送到哪個 router 。
     
@@ -278,7 +279,7 @@ providers:
           - "./traefik.yaml:/traefik.yaml:ro" # 將上述建立的 static config mount 到 container 中
     ```
     
-    接著我們設定 docker-compose 的 預設 network ，讓docker-compose 裡的 container 預設都是使用 `$DEFAULT_NETWORK` 作為 docker network 。
+    接著我們設定 docker-compose 的 預設 network ，讓 docker-compose 裡的 container 預設都是使用 `$DEFAULT_NETWORK` 作為 docker network 。
     
     `docker-compose.yaml`
     
@@ -314,7 +315,7 @@ providers:
     
 - 設定 whoami podinfo container
     
-    我們接下來在 docker-compose file 中增加whoami container
+    我們接下來在 docker-compose file 中增加 whoami container
     
     `docker-compose.yaml`
     

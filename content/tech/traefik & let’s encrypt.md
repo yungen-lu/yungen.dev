@@ -2,12 +2,13 @@
 title: traefik & let’s encrypt
 description: A traefik & let's encrypt tutorial I wrote for AInimal meetings
 date: 2022-02-04T00:00:00+08:00
-lastmod: 2024-12-28T11:10:31+08:00
+lastmod: 2025-02-09T14:37:23+08:00
 draft: false
 category: "[[Posts]]"
 tags:
   - posts
 ---
+
 # 前言
 
 在上一篇文章中介紹如何設置 reverse proxy ，這篇將會介紹如何使用 let’s encrypt 讓 traefik 支援 HTTPS 連線。
@@ -24,9 +25,9 @@ traefik 本身支援使用最常見的 TLS 憑證，也支援透過 [ACME](https
 
 在申請憑證時，最重要的步驟就是向 let’s encrypt 證明你擁有此網域。let’s encrypt 有提供三種方式：
 
-1. HTTP-01 考驗：let’s encrypt 會給客戶端一個 token ，客戶端要將 此 token 放在網頁伺服器`http://<YOUR_DOMAIN>/.well-known/acme-challenge/<TOKEN>` 中，let’s encrypt 之後就會向該網址發送請求，若 let’s encrypt 成功拿到 token 後就會認定此網域的確為客戶所擁有，並頒發數位憑證。
+1. HTTP-01 考驗：let’s encrypt 會給客戶端一個 token ，客戶端要將 此 token 放在網頁伺服器 `http://<YOUR_DOMAIN>/.well-known/acme-challenge/<TOKEN>` 中，let’s encrypt 之後就會向該網址發送請求，若 let’s encrypt 成功拿到 token 後就會認定此網域的確為客戶所擁有，並頒發數位憑證。
 2. DNS-01 考驗：let’s encrypt 會給客戶端一組字串 ，客戶端將此字串以 TXT 紀錄放在 DNS 中，接著 let’s encrypt 就會去查詢相對應的 DNS TXT 紀錄。若有成功查詢到 TXT 紀錄，就會認定此網域的確為客戶所擁有，並頒發數位憑證。
-3. TLS-ALPN-01 考驗：此方法較為少見，詳細可參考[官網](https://letsencrypt.org/zh-tw/docs/challenge-types/)。
+3. TLS-ALPN-01 考驗：此方法較為少見，詳細可參考 [官網](https://letsencrypt.org/zh-tw/docs/challenge-types/)。
 
 traefik 支援以上三種驗證方式，且會在快到期時自動更新憑證。接下來的範例中會使用 HTTPS-01 以及 DNS-01 考驗。
 
@@ -144,7 +145,7 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
     
     這邊需要注意的是因為我們使用 HTTP-01 考驗 `entryPoint` 這邊一定要設置為 port 80 的 entrypoint 。
     
-    traefik 的 `caServer` 預設為 [`*<https://acme-v02.api.letsencrypt.org/directory`>](https://acme-v02.api.letsencrypt.org/directory) 若改成* [`https://acme-staging-v02.api.letsencrypt.org/directory`](https://acme-staging-v02.api.letsencrypt.org/directory) 則 traefik 就會頒發測試用憑證。
+    traefik 的 `caServer` 預設為 [`*<https://acme-v02.api.letsencrypt.org/directory`>](https://acme-v02.api.letsencrypt.org/directory) 若改成 * [`https://acme-staging-v02.api.letsencrypt.org/directory`](https://acme-staging-v02.api.letsencrypt.org/directory) 則 traefik 就會頒發測試用憑證。
     
 - 設置 whoami podinfo
     
@@ -215,7 +216,7 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
 
 透過 DNS-01 考驗申請憑證的好處就是 DNS-01 考驗支援 wild card 憑證，舉例來說如果我申請了 *.ainimal.io 的憑證，[podinfo.ainimal.io](http://podinfo.ainimal.io)、[whoami.ainimal.io](http://whoami.ainimal.io) 就可以直接使用，不需要另外申請。
 
-在設置前請先確認你的 DNS 機構是否在[支援名單中](https://doc.traefik.io/traefik/https/acme/#providers)。
+在設置前請先確認你的 DNS 機構是否在 [支援名單中](https://doc.traefik.io/traefik/https/acme/#providers)。
 
 - 設置 certificates resolvers
     

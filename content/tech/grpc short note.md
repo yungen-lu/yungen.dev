@@ -2,12 +2,13 @@
 title: gRPC short note
 description: A note I wrote for AInimal meetings
 date: 2022-03-04T00:00:00+08:00
-lastmod: 2024-12-28T11:11:47+08:00
+lastmod: 2025-02-09T14:38:10+08:00
 draft: false
 category: "[[Posts]]"
 tags:
   - posts
 ---
+
 # What is gRPC
 
 在了解什麼是 gRPC 之前需要先解釋一下什麼是 RPC(Remote Procedure Call)。RPC 是一種程式之間溝通的方式，A 程式可以呼叫 B 程式去執行一些 function ，也可以把他想像為在一個程式中呼叫另一個程式的 function 。gRPC 為 google 推出的一個 framework 能實現上述提到的功能。

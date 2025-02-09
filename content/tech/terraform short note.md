@@ -2,12 +2,13 @@
 title: Terraform short note
 description: A short note for Google Developer Student Club meetings
 date: 2023-02-26T00:00:00+08:00
-lastmod: 2024-12-28T11:11:00+08:00
+lastmod: 2025-02-09T14:37:56+08:00
 draft: false
 category: "[[Posts]]"
 tags:
   - posts
 ---
+
 # Introduction
 
 在使用雲端服務時我們通常會使用雲端平台提供 GUI 介面去設定並使用雲端服務，但這樣有個缺點就是使用 GUI 設定很難被紀錄、重現，假設今天我架設一台 VM 更動了 20 幾個設定 ，日後我想要再設定另一台一模一樣的 VM 就會很麻煩，又或著我使用多個不同的雲端服務建立一個環境我希望其他人也能建立一個跟我一樣的環境。這時候我們就可以使用 Terraform 這個工具來達到 [Infrastructure as Code](https://en.wikipedia.org/wiki/Infrastructure_as_Code)。我們可以使用 Code 來建置、更改並版本紀錄我們的 Infrastructure。
@@ -31,7 +32,7 @@ resource "gpc_vpc" "main" {
 
 # Install
 
-請參考官方[連結](https://developer.hashicorp.com/terraform/downloads)
+請參考官方 [連結](https://developer.hashicorp.com/terraform/downloads)
 
 # Authentication
 
@@ -113,7 +114,7 @@ resource "google_compute_instance" "vm" {
 }
 ```
 
-"hashicorp/google" 這個 provider 有提供不同種 resource 我們可以從[這裡](https://registry.terraform.io/providers/hashicorp/google/latest/docs)查詢每個 resource 的詳細設定
+"hashicorp/google" 這個 provider 有提供不同種 resource 我們可以從 [這裡](https://registry.terraform.io/providers/hashicorp/google/latest/docs) 查詢每個 resource 的詳細設定
 
 設定好之後我們輸入
 

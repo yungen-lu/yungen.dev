@@ -2,12 +2,13 @@
 title: kubernetes basics
 description: A short tutorial for selab
 date: 2022-03-09T00:00:00+08:00
-lastmod: 2024-12-28T11:11:35+08:00
+lastmod: 2025-02-09T14:38:06+08:00
 draft: false
 category: "[[Posts]]"
 tags:
   - posts
 ---
+
 # Wow Docker 好方便！那他跟 kubernetes 差在哪裡？
 
 首先，docker 是無法跟 kubernetes 比較的，docker 是運行 container 的一種方式，許多人會認為 docker == container == image ，但實際上 docker ≠ container ≠ image。
@@ -37,7 +38,7 @@ docker 的基本概念可以參考下圖
 1. 買更多 CPU 更多 RAM 的機器
 2. 買更多台機器
 
-這個其實就是 scalability 的問題，方案1. 就是所謂的 Vertical Scaling 、 方案2. 就是所謂的 Horizontal Scaling 。（兩者詳細的差別可參考[影片](https://youtu.be/xpDnVSmNFX0)）而 kubernetes 就是透過 horizontal scaling 來解決這個問題。簡而言之就是在多台機器上運行 container 。
+這個其實就是 scalability 的問題，方案 1. 就是所謂的 Vertical Scaling 、 方案 2. 就是所謂的 Horizontal Scaling 。（兩者詳細的差別可參考 [影片](https://youtu.be/xpDnVSmNFX0)）而 kubernetes 就是透過 horizontal scaling 來解決這個問題。簡而言之就是在多台機器上運行 container 。
 
 wow ~ kubernetes 這麼厲害那這套軟體是怎麼運作的？如果你這麼想那就表示你也落入許多人都會有的迷思。
 
@@ -52,7 +53,7 @@ kubernetes 不能算是一個軟體、一套軟體，將他形容為一套系統
 ## 名詞解釋
 
 - Node：同常為一台伺服器，或著是一台 VM 有自己獨立的 IP 位址，儲存空間等等。
-- Pod：Pod為Kubernets運作時的最小單位，一個pod內含一個或多個容器，而這些容器則會組成一個應用（application），亦即一個pod會對應到一個應用。
+- Pod：Pod 為 Kubernets 運作時的最小單位，一個 pod 內含一個或多個容器，而這些容器則會組成一個應用（application），亦即一個 pod 會對應到一個應用。
 - Cluster：所有 Node 的集合。
 
 ## api server
@@ -123,8 +124,8 @@ spec:
 
 我們成功的告訴 api server 我們要跑一個 Pod 但我們面臨一個難題：我有好多台 Node ，倒底要在哪一台跑呢？kubernetes 的 scheduler 就是要解決這個問題。scheduler 在決定要在哪一個 Node 上跑 Pod 時會有兩個步驟：
 
-1. Filtering：scheduler 會根據一些規則（taints, labels...）先過濾掉一些 Node。比如說我可以指定某個 Pod 只能跑在有 ssd 的 Node 上，scheduler 就會在這個階段過濾掉沒有 ssd 的Node。
-2. Scoring：scheduler 會根據一些規則與權重給每一台 Node 打分數，最後選擇分數最高的Node。比如說我把『剩餘記憶體的容量』設為規則並給它高權重，scheduler 最後就會選擇剩餘記憶體容量最多的 Node 。
+1. Filtering：scheduler 會根據一些規則（taints, labels...）先過濾掉一些 Node。比如說我可以指定某個 Pod 只能跑在有 ssd 的 Node 上，scheduler 就會在這個階段過濾掉沒有 ssd 的 Node。
+2. Scoring：scheduler 會根據一些規則與權重給每一台 Node 打分數，最後選擇分數最高的 Node。比如說我把『剩餘記憶體的容量』設為規則並給它高權重，scheduler 最後就會選擇剩餘記憶體容量最多的 Node 。
 
 ## controller manager
 
@@ -150,7 +151,7 @@ spec:
 
 </aside>
 
-在整個 kubernetes 架構中，需要儲存許多重要的東西，比如說 kubernetes 內部的設定、憑證、以及上述提到 desired state 與 current state 等資料。而 kubernetes 採用 etcd 儲存資料，其中最大的原因在於他是分散式且能保持一致性的系統，也就是說當我運行多個 etcd 時，就算有幾個 etcd 壞掉也能保持資料的唯一性。（備註：詳細的演算法可參考這個[網站](http://thesecretlivesofdata.com/raft/)）
+在整個 kubernetes 架構中，需要儲存許多重要的東西，比如說 kubernetes 內部的設定、憑證、以及上述提到 desired state 與 current state 等資料。而 kubernetes 採用 etcd 儲存資料，其中最大的原因在於他是分散式且能保持一致性的系統，也就是說當我運行多個 etcd 時，就算有幾個 etcd 壞掉也能保持資料的唯一性。（備註：詳細的演算法可參考這個 [網站](http://thesecretlivesofdata.com/raft/)）
 
 ## kubelet
 
@@ -162,7 +163,7 @@ spec:
 
 接續上述例子， controller 已經發現 desired state 與 current state 不同，並告訴 api server ，api server 就會告訴 scheduler 指定 Node 的 kubelet ，叫它運行一個 Pod 。
 
-疑？是不是很像之前講的 container engine, container runtime 的架構？沒錯！但有一點不同的是kubelet 與 container runtime 中間有一層 CRI(Container Runtime Interface)，可以參考下圖：
+疑？是不是很像之前講的 container engine, container runtime 的架構？沒錯！但有一點不同的是 kubelet 與 container runtime 中間有一層 CRI(Container Runtime Interface)，可以參考下圖：
 
 ![container-ecosystem.drawio-2.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/75cb9d08-2f32-409e-8d16-5457b63f3623/container-ecosystem.drawio-2.png)
 

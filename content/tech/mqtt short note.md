@@ -2,15 +2,16 @@
 title: MQTT short note
 description: A note I wrote for AInimal meetings
 date: 2022-03-18T00:00:00+08:00
-lastmod: 2024-12-28T11:11:09+08:00
+lastmod: 2025-02-09T14:38:00+08:00
 draft: false
 category: "[[Posts]]"
 tags:
   - posts
 ---
+
 # What is mqtt
 
-mqtt 是個基於Pub/Sub 模式的 protocol ，主要會由一個 message broker 與多個 client 組成。
+mqtt 是個基於 Pub/Sub 模式的 protocol ，主要會由一個 message broker 與多個 client 組成。
 
 # What is Pub/Sub
 
