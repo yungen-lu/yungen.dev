@@ -85,7 +85,7 @@ body[a="light"] {
     @include dark-appearance;
   }
   .highlight {
-    @import 'catppuccin-macchiato';
+    @import "catppuccin-macchiato";
   }
 }
 
@@ -94,7 +94,7 @@ body[a="light"] {
     @include light-appearance;
   }
   .highlight {
-    @import 'catppuccin-latte';
+    @import "catppuccin-latte";
   }
 }
 
@@ -223,7 +223,7 @@ details[open] summary {
 }
 
 .w {
-  max-width: 640px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 4rem 2rem;
 }
