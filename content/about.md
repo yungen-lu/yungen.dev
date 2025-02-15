@@ -2,7 +2,7 @@
 title: About
 description: About
 date: 2024-12-26T12:40:03+08:00
-lastmod: 2025-02-09T14:35:12+08:00
+lastmod: 2025-02-15T14:43:12+08:00
 draft: false
 ---
 
@@ -64,3 +64,9 @@ Dec 2023 – Sep 2024
 
 - **Yung-En Lu** and Shin-Jie Lee, “Prompt Optimization with Human Annotations Using Pairwise Comparison,” in *Proceedings of the IEEE International Conference on e-Business Engineering (ICEBE)*, 2024, pp. 15–22, doi: 10.1109/ICEBE62490.2024.00012.
 - Chun-Chuan Chen, Meng-Chang Tsai, Eric Hsiao-Kuang Wu, Shao-Rong Sheng, Jia-Jeng Lee, **Yung-En Lu**, Shih-Ching Yeh, “Fusion model using resting neurophysiological data to help mass screening of methamphetamine use disorder,” *IEEE Journal of Translational Engineering in Health and Medicine*, doi: 10.1109/JTEHM.2024.3522356.
+
+### Activities
+
+- **Teaching Assistant** | Program Design II, Feb 2024 – Jun 2024
+- **Core Team Member** | Google Developer Student Club, Sep 2022 – Jun 2023
+- **Teaching Assistant** | Program Design I, Sep 2022 – Jan 2023
