@@ -2,7 +2,7 @@
 title: About
 description: About
 date: 2024-12-26T12:40:03+08:00
-lastmod: 2025-02-15T14:43:22+08:00
+lastmod: 2025-03-29T11:57:53+08:00
 draft: false
 ---
 
@@ -20,6 +20,10 @@ Sep 2021 – Jun 2024
 
 **AI Engineer Intern** @ [PlayMa](https://maiagent.ai)
 Feb 2025 – Present
+
+- Integrated HeyGen and D-ID streaming avatar services into MaiAgent, enabling an interactive talking avatar interface for customer engagement
+- Designed and implemented a CI/CD pipeline using GitHub Actions, automating testing and deployment to improve reliability
+- Developed Ansible scripts to automate on-premises deployment, reducing deployment time from 30–60 minutes to under 10 minutes
 
 **Software Engineer Intern** @ [Trend Micro](https://www.trendmicro.com/)
 Jul 2023 – Aug 2023
