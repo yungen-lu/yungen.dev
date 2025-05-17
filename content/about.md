@@ -2,13 +2,15 @@
 title: About
 description: About
 date: 2024-12-26T12:40:03+08:00
-lastmod: 2025-04-14T13:51:13+08:00
+lastmod: 2025-05-02T17:23:05+08:00
 draft: false
 ---
 
 ## Yung-En Lu
 
 ### Education
+
+**Master of Computer Science** @ Rice University
 
 **Master of Science in Computer Science** @ National Yang Ming Chiao Tung University
 Sep 2024 – Jun 2026
@@ -21,9 +23,10 @@ Sep 2021 – Jun 2024
 **AI Engineer Intern** @ [PlayMa](https://maiagent.ai)
 Feb 2025 – Present
 
-- Integrated HeyGen and D-ID streaming avatar services into MaiAgent, enabling an interactive talking avatar interface for customer engagement
-- Designed and implemented a CI/CD pipeline using GitHub Actions, automating testing and deployment to improve reliability
-- Developed Ansible scripts to automate on-premises deployment, reducing deployment time from 30–60 minutes to under 10 minutes
+- Integrated HeyGen and D-ID streaming avatar services into MaiAgent to enable interactive talking avatars for customer engagement (WebRTC)
+- Reduced production deployment time for 10 AWS EC2 instances from 30 minutes to under 5 minutes by developing Ansible scripts
+- Designed and implemented a CI pipeline using GitHub Actions, automating unit and integration testing, which caught 20% of production errors during pre-deployment testing
+- Developed Ansible scripts to automate on-premises deployment across five distinct environments, including air-gapped networks and systems running Ubuntu and RHEL(ARM x86)
 
 **Software Engineer Intern** @ [Trend Micro](https://www.trendmicro.com/)
 Jul 2023 – Aug 2023
