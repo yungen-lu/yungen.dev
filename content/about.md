@@ -2,7 +2,7 @@
 title: About
 description: About
 date: 2024-12-26T12:40:03+08:00
-lastmod: 2025-06-07T23:49:18+08:00
+lastmod: 2025-06-09T12:06:40+08:00
 draft: false
 ---
 
@@ -24,18 +24,20 @@ Sep 2021 – Jun 2024
 **Software Engineer Intern** @ [PlayMa](https://maiagent.ai)
 Feb 2025 – Present
 
-- Streamlined custom domain configuration for clients by developing a backend service automating CDN and SSL/TLS certificate configuration using **AWS CloudFront** multi-tenant distribution
+- Enabled easy CNAME vanity domain setup for our AI webchats by developing a backend service automating CDN provisioning and SSL/TLS certificate management on **AWS CloudFront**
+- Reduced production deployment time for 12 **AWS EC2** instances from 30 minutes to under 5 minutes by utilizing **Ansible**
+- Created **Ansible** playbooks to automate on-premises deployment across 5 different environments, including air-gapped networks and systems running Ubuntu and RHEL(ARM x86 w/o GPU)
 - Integrated HeyGen and D-ID services into MaiAgent to enable interactive talking avatars for customer engagement (WebRTC)
-- Reduced production deployment time for 12 **AWS EC2** instances from 30 minutes to under 5 minutes by developing **Ansible** scripts
-- Designed and implemented a CI pipeline using **GitHub Actions**, automating unit and integration testing, which caught 20% of production errors during pre-deployment testing
-- Developed **Ansible** scripts to automate on-premises deployment across five distinct environments, including air-gapped networks and systems running Ubuntu and RHEL(ARM x86)
+- Designed and implemented CI pipelines using **GitHub Actions**, automating unit and integration testing, which caught 20% of production errors during pre-deployment testing
+- Setup CI pipelines for unit and integration testing for our Django application and Ansible playbooks, reduced testing time by 30% for our Django application by utilizing docker build cache, migrating from poetry to uv
+- Setup CI pipelines for unit and integration testing and securtiy for our on-premise Django application with Trivy, Sonarqube and testing for Ansible playbooks
 
 **Software Engineer Intern** @ [Trend Micro](https://www.trendmicro.com/)
 Jul 2023 – Aug 2023
 
 - Worked on the Web Reputation Service team, contributing to the migration of the Web Classify Server (WCS), a legacy service handling **700 million** daily classification requests
 - Cut infrastructure costs by **10%** by migrating the WCS legacy service from VMs to Kubernetes
-- Reduced WCS deployment time by **20%** by automating the build and deployment pipeline using **GitHub Actions** and **Helm** charts
+- Reduced WCS deployment time by **20%** by building CI/CD pipelines with **GitHub Actions** and **Helm charts**
 - Designed and implemented a **Prometheus** metrics exporter for WCS, enabling real-time error detection and reducing reliance on user-reported errors
 - Optimized the WCS pattern file upload process to reduce desynchronization errors by utilizing S3 storage
 
