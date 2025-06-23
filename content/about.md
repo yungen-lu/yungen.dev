@@ -2,7 +2,7 @@
 title: About
 description: About
 date: 2024-12-26T12:40:03+08:00
-lastmod: 2025-06-09T12:06:40+08:00
+lastmod: 2025-06-22T17:42:58+08:00
 draft: false
 ---
 
@@ -24,10 +24,13 @@ Sep 2021 – Jun 2024
 **Software Engineer Intern** @ [PlayMa](https://maiagent.ai)
 Feb 2025 – Present
 
-- Enabled easy CNAME vanity domain setup for our AI webchats by developing a backend service automating CDN provisioning and SSL/TLS certificate management on **AWS CloudFront**
+- Worked on building new features and doing DevOps stuff for our AI agent platform–Maiagent using Django
+- Streamlined CNAME vanity domain setup for our AI webchats by developing a backend service automating CDN provisioning and SSL/TLS certificate management on **AWS CloudFront**
 - Reduced production deployment time for 12 **AWS EC2** instances from 30 minutes to under 5 minutes by utilizing **Ansible**
 - Created **Ansible** playbooks to automate on-premises deployment across 5 different environments, including air-gapped networks and systems running Ubuntu and RHEL(ARM x86 w/o GPU)
-- Integrated HeyGen and D-ID services into MaiAgent to enable interactive talking avatars for customer engagement (WebRTC)
+- Integrated HeyGen and D-ID services into webchat service to enable interactive talking avatars for customer engagement (WebRTC)
+- Setup CI pipelines using **GitHub Actions**, automating unit and integration testing
+- Wrote test cases and setup CI pipelines to automate testing for our Ansible roles and playbooks, reduced tests duration by 50% for different inventory setup and environment by using Molecule testing framework and GitHub Actions
 - Designed and implemented CI pipelines using **GitHub Actions**, automating unit and integration testing, which caught 20% of production errors during pre-deployment testing
 - Setup CI pipelines for unit and integration testing for our Django application and Ansible playbooks, reduced testing time by 30% for our Django application by utilizing docker build cache, migrating from poetry to uv
 - Setup CI pipelines for unit and integration testing and securtiy for our on-premise Django application with Trivy, Sonarqube and testing for Ansible playbooks
@@ -39,7 +42,7 @@ Jul 2023 – Aug 2023
 - Cut infrastructure costs by **10%** by migrating the WCS legacy service from VMs to Kubernetes
 - Reduced WCS deployment time by **20%** by building CI/CD pipelines with **GitHub Actions** and **Helm charts**
 - Designed and implemented a **Prometheus** metrics exporter for WCS, enabling real-time error detection and reducing reliance on user-reported errors
-- Optimized the WCS pattern file upload process to reduce desynchronization errors by utilizing S3 storage
+- Reduced desynchronization errors with AWS S3 Cross-Region Replication by designing and implementing the WCS pattern file upload process
 
 **Software Engineer** @ [AInimal](https://official.ainimal.io/)
 Jan 2022 – Jun 2023
