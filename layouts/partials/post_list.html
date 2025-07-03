@@ -25,10 +25,16 @@
     {{- if .limit }}
         {{ $posts = (first .limit $posts ) }}
     {{ end }}
-    <ul>
+    <ul class="blog-posts">
         {{- range $post := $posts -}}
         <li>
-            <span>{{- ($post.Date | time.Format site.Params.theme_config.date_format) }}</span>
+            <span>
+                <i>
+                    <time datetime='{{ .Date.Format "2006-01-02" }}'>
+                        {{- ($post.Date | time.Format (default "02 Jan, 2006" site.Params.dateFormat)) }}
+                    </time>
+                </i>
+            </span>
             <a href="{{ $post.Permalink | relURL }}">{{ $post.Title }}</a>
         </li>
         {{ end }}

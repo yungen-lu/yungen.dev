@@ -2,8 +2,10 @@
 title: About
 description: About
 date: 2024-12-26T12:40:03+08:00
-lastmod: 2025-07-03T16:14:52+08:00
+lastmod: 2025-07-03T17:11:43+08:00
 draft: false
+menu: main
+weight: 2
 ---
 
 ## Yung-En Lu
