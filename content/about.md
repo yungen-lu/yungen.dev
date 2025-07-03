@@ -2,7 +2,7 @@
 title: About
 description: About
 date: 2024-12-26T12:40:03+08:00
-lastmod: 2025-06-22T17:42:58+08:00
+lastmod: 2025-07-03T16:14:52+08:00
 draft: false
 ---
 
@@ -24,15 +24,14 @@ Sep 2021 – Jun 2024
 **Software Engineer Intern** @ [PlayMa](https://maiagent.ai)
 Feb 2025 – Present
 
-- Worked on building new features and doing DevOps stuff for our AI agent platform–Maiagent using Django
-- Streamlined CNAME vanity domain setup for our AI webchats by developing a backend service automating CDN provisioning and SSL/TLS certificate management on **AWS CloudFront**
+- Developed new features with Django and automated DevOps workflows for the MaiAgent AI platform
+- Reduced CNAME vanity domain setup time by over 80% for our AI webchats by developing a backend service that automates CDN provisioning and SSL/TLS certificate management on **AWS CloudFront**
 - Reduced production deployment time for 12 **AWS EC2** instances from 30 minutes to under 5 minutes by utilizing **Ansible**
-- Created **Ansible** playbooks to automate on-premises deployment across 5 different environments, including air-gapped networks and systems running Ubuntu and RHEL(ARM x86 w/o GPU)
-- Integrated HeyGen and D-ID services into webchat service to enable interactive talking avatars for customer engagement (WebRTC)
+- Enabled on-premises deployment for **3 new enterprise customers** by creating **Ansible** playbooks to automate setup across **5** diverse environments, including air-gapped networks(Ubuntu/RHEL)
+- Integrated HeyGen and D-ID services into the webchat to enable interactive talking avatars for customer engagement
 - Setup CI pipelines using **GitHub Actions**, automating unit and integration testing
-- Wrote test cases and setup CI pipelines to automate testing for our Ansible roles and playbooks, reduced tests duration by 50% for different inventory setup and environment by using Molecule testing framework and GitHub Actions
+- Wrote test cases and set up CI pipelines to automate testing for Ansible roles and playbooks, reducing test duration by 50% across different inventory setups by using the Molecule testing framework and GitHub Actions
 - Designed and implemented CI pipelines using **GitHub Actions**, automating unit and integration testing, which caught 20% of production errors during pre-deployment testing
-- Setup CI pipelines for unit and integration testing for our Django application and Ansible playbooks, reduced testing time by 30% for our Django application by utilizing docker build cache, migrating from poetry to uv
 - Setup CI pipelines for unit and integration testing and securtiy for our on-premise Django application with Trivy, Sonarqube and testing for Ansible playbooks
 
 **Software Engineer Intern** @ [Trend Micro](https://www.trendmicro.com/)
@@ -50,14 +49,14 @@ Jan 2022 – Jun 2023
 - Led backend migration from monolith to microservices, reducing the development cycle by **40%**
 - Led development of the **gRPC** API for backend microservices, increasing backend system fault tolerance
 - Increased maximum **concurrent users to over 5,000** by adopting Golang and NoSQL databases
-- Wrote unit tests, integration tests and load tests for chat service with over **90%** code coverage. Set up GitLab CI/CD to automate testing and building container images
+- Wrote unit tests, integration tests and load tests for chat service with over **90%** code coverage. Set up **GitLab** CI/CD to automate testing and building container images
 - Redesigned the user notification feature and optimized the click-through process, reducing interaction time by **20%** and enhancing user experience
 
 **Software Engineer Intern** @ [Intelligent Mobile Service Lab](https://www.imslab.org/)
 Jun 2022 – Jan 2023
 
 - Developed a responsive online judge website using **Vue** and Vuetify, enhancing the user experience for over **200** students
-- Optimized website performance by minimizing render times and improving load speeds
+- Improved page load times and responsiveness by refactoring core components and implementing asynchronous component loading
 
 ### Research Experience
 
@@ -66,7 +65,7 @@ Oct 2021 – Oct 2024
 
 - Developed a prompt optimization method for large language models (LLMs) using pairwise feedback, reducing annotation effort by **50%** while maintaining performance
 - Implemented a new screen recording feature for [Rapi](https://www.rapi.dev) (web application testing software), enabling local and remote browser recording during test cases which reduced debugging and bug reproduction time by **50%**
-- Built an auto-scalable tool for **Selenium Grid** (a distributed web testing framework) to record browser screens during test cases, enhancing user insights and test case analysis
+- Built an auto-scalable tool for a Kubernetes-based Selenium Grid, enabling reliable video capture across large-scale parallel test suites
 
 **Remote Research Assistant** @ [XR for Intelligent Medicine Lab](https://xrlab.csie.ncu.edu.tw/)
 Dec 2023 – Sep 2024
