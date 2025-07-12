@@ -2,7 +2,7 @@
 title: About
 description: About
 date: 2024-12-26T12:40:03+08:00
-lastmod: 2025-07-03T17:11:43+08:00
+lastmod: 2025-07-13T00:09:20+08:00
 draft: false
 menu: main
 weight: 2
@@ -23,16 +23,16 @@ Sep 2021 – Jun 2024
 
 ### Work Experience
 
-**Software Engineer Intern** @ [PlayMa](https://maiagent.ai)
+**Software Engineer Intern** @ [MaiAgent](https://maiagent.ai) (formerly Playma)
 Feb 2025 – Present
 
 - Developed new features with Django and automated DevOps workflows for the MaiAgent AI platform
 - Reduced CNAME vanity domain setup time by over 80% for our AI webchats by developing a backend service that automates CDN provisioning and SSL/TLS certificate management on **AWS CloudFront**
 - Reduced production deployment time for 12 **AWS EC2** instances from 30 minutes to under 5 minutes by utilizing **Ansible**
 - Enabled on-premises deployment for **3 new enterprise customers** by creating **Ansible** playbooks to automate setup across **5** diverse environments, including air-gapped networks(Ubuntu/RHEL)
-- Integrated HeyGen and D-ID services into the webchat to enable interactive talking avatars for customer engagement
+- Integrated HeyGen and D-ID services into the webchat to create talking avatars for customer engagement
 - Setup CI pipelines using **GitHub Actions**, automating unit and integration testing
-- Wrote test cases and set up CI pipelines to automate testing for Ansible roles and playbooks, reducing test duration by 50% across different inventory setups by using the Molecule testing framework and GitHub Actions
+- Reduced **Ansible** test duration by **50%** across diverse inventory setups by implementing CI pipelines with **Molecule** and **GitHub Actions**
 - Designed and implemented CI pipelines using **GitHub Actions**, automating unit and integration testing, which caught 20% of production errors during pre-deployment testing
 - Setup CI pipelines for unit and integration testing and securtiy for our on-premise Django application with Trivy, Sonarqube and testing for Ansible playbooks
 
@@ -74,6 +74,35 @@ Dec 2023 – Sep 2024
 
 - Developed a customizable LLM-based virtual therapist using **LangChain**, retrieval-augmented generation (RAG), and prompt engineering, enhancing personalized mental health support
 - Surveyed and experimented with different evaluation methods to assess the effectiveness of an LLM-based virtual therapist in providing emotional support
+
+### Projects
+
+[DBonK8s](https://github.com/yungen-lu/DBonK8s)  |  Go, Kubernetes, Terraform
+
+A chatbot that gives users and admins an easy way to manage databases for development and testing
+
+- Utilized Kubernetes API, namespace and role-based access control to manage resources, users, and administrators
+- Supports four different types of databases (MySQL, PostgreSQL, Redis, MongoDB) with custom settings
+- Utilized Terraform to deploy to Google Cloud Platform and Kustomize to manage manifest files
+- Built a chatbot to manage four types of databases (MySQL, PostgreSQL, Redis, MongoDB), giving developers and admins an easy way to manage resources for development and testing
+- Utilized Terraform to deploy to Google Cloud Platform and Kustomize to manage manifest files
+- Developed a chatbot to streamline database management (MySQL, PostgreSQL, Redis, MongoDB), simplifying resource provisioning for development and testing environments
+- Built a chatbot to simplify database provisioning (MySQL, PostgreSQL, Redis, MongoDB) for development and testing environments
+- Configured Kubernetes role-based access control (RBAC) and namespaces to create secure, multi-tenant resource management
+- Utilized Kubernetes API, namespace and role-based access control (RBAC) to create secure, multi-tenant resource management
+- Utilized Terraform and Kustomize for provisioning and configuration management
+
+[Yungen's blog](https://yungen.dev/) |  Hugo, GitHub Actions
+
+My personal website that automatically syncs with my Obsidian notes through GitHub Actions
+- Developed a personal website that automatically syncs with Obsidian notes
+- Implemented a CI/CD pipeline using GitHub Actions for content sync and Cloudflare Pages for deployment
+[bookmark](https://bookmark.yungen.dev)  |  TypeScript, Node.js, Hugo, GitHub Actions
+
+My personal bookmark website that automatically syncs with my Notion notes through GitHub Actions
+
+- Utilized Notion SDK to export Markdown files from Notion notes and Hugo to generate a static site
+- Automated the generation, updating, and deployment processes using GitHub Actions, eliminating the need for manual reconfiguration and deployment, resulting in a 30-minute time savings per edit
 
 ### Publications
 
