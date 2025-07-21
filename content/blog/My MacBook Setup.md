@@ -1,5 +1,5 @@
 ---
-lastmod: 2025-07-12T23:47:57+08:00
+lastmod: 2025-07-21T11:08:09+08:00
 title: My MacBook Setup
 description: 
 date: 2025-07-12T23:41:27+08:00
@@ -75,3 +75,4 @@ My philosophy for my setup is to keep things minimal. I never install an app jus
 - uv
 - wget
 - topgrade
+- [Home \| mise-en-place](https://mise.jdx.dev/)
