@@ -26,39 +26,36 @@ Sep 2021 – Jun 2024
 **Software Engineer Intern** @ [MaiAgent](https://maiagent.ai) (formerly Playma)
 Feb 2025 – Present
 
-- Developed new features with Django and automated DevOps workflows for the MaiAgent AI platform
-- Reduced CNAME vanity domain setup time by over 80% for our AI webchats by developing a backend service that automates CDN provisioning and SSL/TLS certificate management on **AWS CloudFront**
-- Reduced production deployment time for 12 **AWS EC2** instances from 30 minutes to under 5 minutes by utilizing **Ansible**
-- Enabled on-premises deployment for **3 new enterprise customers** by creating **Ansible** playbooks to automate setup across **5** diverse environments, including air-gapped networks(Ubuntu/RHEL)
-- Integrated HeyGen and D-ID services into the webchat to create talking avatars for customer engagement
-- Setup CI pipelines using **GitHub Actions**, automating unit and integration testing
-- Reduced **Ansible** test duration by **50%** across diverse inventory setups by implementing CI pipelines with **Molecule** and **GitHub Actions**
-- Designed and implemented CI pipelines using **GitHub Actions**, automating unit and integration testing, which caught 20% of production errors during pre-deployment testing
-- Setup CI pipelines for unit and integration testing and securtiy for our on-premise Django application with Trivy, Sonarqube and testing for Ansible playbooks
+- Developed new **RESTful APIs** and features with **Django** while streamlining DevOps automation for the MaiAgent AI platform, gaining 6 new partners, including CTBC Bank, MSI, and HPE
+- Reduced CNAME vanity domain setup time by over **80%** for our the MaiAgent AI platform by developing a backend service that automates **CDN** provisioning and SSL/TLS certificate management on **AWS CloudFront**
+- Cut production deployment time for 12 **AWS EC2** instances from 30 to under 5 minutes by utilizing **Ansible**
+- Enabled air-gapped **on-premises** deployments for **3 banks** by automating setup with Ansible, reducing deployment time from hours to minutes across diverse OS (Ubuntu/RHEL/CentOS) and VM topologies
+- Accelerated Ansible testing by 50% across inventories by building a CI pipeline with **Molecule** and **GitHub Actions**
+- Integrated HeyGen and D-ID services into the webchat to create talking avatars, presented to **10+** clients
 
 **Software Engineer Intern** @ [Trend Micro](https://www.trendmicro.com/)
 Jul 2023 – Aug 2023
 
 - Worked on the Web Reputation Service team, contributing to the migration of the Web Classify Server (WCS), a legacy service handling **700 million** daily classification requests
-- Cut infrastructure costs by **10%** by migrating the WCS legacy service from VMs to Kubernetes
+- Cut infrastructure costs by **10%** by migrating the WCS legacy service from VMs to **Kubernetes**
 - Reduced WCS deployment time by **20%** by building CI/CD pipelines with **GitHub Actions** and **Helm charts**
-- Designed and implemented a **Prometheus** metrics exporter for WCS, enabling real-time error detection and reducing reliance on user-reported errors
-- Reduced desynchronization errors with AWS S3 Cross-Region Replication by designing and implementing the WCS pattern file upload process
+- Improved service reliability by implementing a **Prometheus** exporter that monitored WCS pattern file updates across **200+** nodes, enabling real-time detection of outdated nodes and reducing reliance on user reports
+- Reduced desynchronization errors from ∼3 per week to **nearly zero** by redesigning the WCS pattern file sync process to address issues with **AWS S3** Cross-Region Replication and network instability
 
-**Software Engineer** @ [AInimal](https://official.ainimal.io/)
+**Software Engineer Intern** @ [AInimal](https://official.ainimal.io/)
 Jan 2022 – Jun 2023
 
-- Led backend migration from monolith to microservices, reducing the development cycle by **40%**
-- Led development of the **gRPC** API for backend microservices, increasing backend system fault tolerance
-- Increased maximum **concurrent users to over 5,000** by adopting Golang and NoSQL databases
-- Wrote unit tests, integration tests and load tests for chat service with over **90%** code coverage. Set up **GitLab** CI/CD to automate testing and building container images
-- Redesigned the user notification feature and optimized the click-through process, reducing interaction time by **20%** and enhancing user experience
+- Led the migration of a monolithic backend into 4 **Go** and **Node.js** microservices, designing **gRPC** APIs for inter-service communication to build a more fault-tolerant and scalable system
+- Deployed backend infrastructure on **GKE** with Cloud SQL and Cloud Storage using **Terraform**, improving scalability and reducing overall service downtime by **12%**
+- Scaled chat service to handle **5,000+** concurrent users by adopting Go, **MongoDB** and **Google Cloud Pub/Sub**
+- Improved notification responsiveness by **20%** by developing the notification service in Go and redesigning the click-through flow in **React Native**
+- Built test suites with **90%+** coverage and automated testing/build/deployment pipelines using **GitLab CI/CD**, reducing regressions by **16%** and release time from hours to minutes
 
 **Software Engineer Intern** @ [Intelligent Mobile Service Lab](https://www.imslab.org/)
 Jun 2022 – Jan 2023
 
-- Developed a responsive online judge website using **Vue** and Vuetify, enhancing the user experience for over **200** students
-- Improved page load times and responsiveness by refactoring core components and implementing asynchronous component loading
+- Refactored and optimized an online judge website with **Vue**/Vuetify, improving responsiveness and usability for **200+** students
+- Optimized core components with asynchronous loading, reducing average page load times by **~20%**
 
 ### Research Experience
 
@@ -72,31 +69,25 @@ Oct 2021 – Oct 2024
 **Remote Research Assistant** @ [XR for Intelligent Medicine Lab](https://xrlab.csie.ncu.edu.tw/)
 Dec 2023 – Sep 2024
 
-- Developed a customizable LLM-based virtual therapist using **LangChain**, retrieval-augmented generation (RAG), and prompt engineering, enhancing personalized mental health support
+- Developed a customizable LLM-based virtual therapist using **LangChain**, retrieval-augmented generation (RAG), and prompt engineering, improving personalized mental health support
+- Built a pipeline to preprocess and embed data from **3** mental health datasets of varying sizes (∼50k docs), storing embeddings in **Qdrant** for RAG context retrieval
 - Surveyed and experimented with different evaluation methods to assess the effectiveness of an LLM-based virtual therapist in providing emotional support
 
 ### Projects
 
-[DBonK8s](https://github.com/yungen-lu/DBonK8s)  |  Go, Kubernetes, Terraform
+[DBonK8s](https://github.com/yungen-lu/DBonK8s)  |  Go, Kubernetes, Terraform, GCP, Kustomize
 
 A chatbot that gives users and admins an easy way to manage databases for development and testing
 
-- Utilized Kubernetes API, namespace and role-based access control to manage resources, users, and administrators
-- Supports four different types of databases (MySQL, PostgreSQL, Redis, MongoDB) with custom settings
-- Utilized Terraform to deploy to Google Cloud Platform and Kustomize to manage manifest files
-- Built a chatbot to manage four types of databases (MySQL, PostgreSQL, Redis, MongoDB), giving developers and admins an easy way to manage resources for development and testing
-- Utilized Terraform to deploy to Google Cloud Platform and Kustomize to manage manifest files
-- Developed a chatbot to streamline database management (MySQL, PostgreSQL, Redis, MongoDB), simplifying resource provisioning for development and testing environments
 - Built a chatbot to simplify database provisioning (MySQL, PostgreSQL, Redis, MongoDB) for development and testing environments
-- Configured Kubernetes role-based access control (RBAC) and namespaces to create secure, multi-tenant resource management
-- Utilized Kubernetes API, namespace and role-based access control (RBAC) to create secure, multi-tenant resource management
-- Utilized Terraform and Kustomize for provisioning and configuration management
+- Utilized Kubernetes API, namespace and RBAC to create secure, multi-tenant resource management
 
 [Yungen's blog](https://yungen.dev/) |  Hugo, GitHub Actions
 
 My personal website that automatically syncs with my Obsidian notes through GitHub Actions
 - Developed a personal website that automatically syncs with Obsidian notes
-- Implemented a CI/CD pipeline using GitHub Actions for content sync and Cloudflare Pages for deployment
+- Implemented a CI/CD pipeline with GitHub Actions for content sync and deployed using Cloudflare Pages
+
 [bookmark](https://bookmark.yungen.dev)  |  TypeScript, Node.js, Hugo, GitHub Actions
 
 My personal bookmark website that automatically syncs with my Notion notes through GitHub Actions
