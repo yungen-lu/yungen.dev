@@ -75,6 +75,10 @@ Dec 2023 – Sep 2024
 
 ### Projects
 
+CVE Chatbot | LangChain, Elasticsearch
+
+A chatbot that
+
 [DBonK8s](https://github.com/yungen-lu/DBonK8s)  |  Go, Kubernetes, Terraform, GCP, Kustomize
 
 A chatbot that gives users and admins an easy way to manage databases for development and testing
@@ -85,6 +89,7 @@ A chatbot that gives users and admins an easy way to manage databases for develo
 [Yungen's blog](https://yungen.dev/) |  Hugo, GitHub Actions
 
 My personal website that automatically syncs with my Obsidian notes through GitHub Actions
+
 - Developed a personal website that automatically syncs with Obsidian notes
 - Implemented a CI/CD pipeline with GitHub Actions for content sync and deployed using Cloudflare Pages
 
