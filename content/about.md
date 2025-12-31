@@ -77,7 +77,8 @@ Dec 2023 – Sep 2024
 
 CVE Chatbot | LangChain, Elasticsearch
 
-A chatbot that
+- Built a LangChain-based chatbot that answers vulnerability-related questions from the National Vulnerability Database (NVD) using LLM tool calling for dynamic retrieval and contextual reasoning, improving answer accuracy
+- Integrated Elasticsearch with hybrid search (dense + sparse retrieval) to improve response relevance for complex cybersecurity questions
 
 [DBonK8s](https://github.com/yungen-lu/DBonK8s)  |  Go, Kubernetes, Terraform, GCP, Kustomize
 
