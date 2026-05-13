@@ -62,4 +62,12 @@ ignoreErrors = ["error-disable-taxonomy"]
     codeFences = true
     # noClasses = false
 
-lastmod = ["lastmod" ,':fileModTime']
+[frontmatter]
+  date = ["publishDate", "date"]
+  lastmod = ["lastmod", ":fileModTime"]
+  publishDate = ["publishDate", "date"]
+
+[[menu.main]]
+  name = "RSS"
+  url = "/index.xml"
+  weight = 5
