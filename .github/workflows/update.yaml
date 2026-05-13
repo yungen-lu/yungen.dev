@@ -1,34 +1,37 @@
-name: Pull and update from 
+name: Sync content from vault
 
 on:
   repository_dispatch:
     types: [trigger-workflow]
-    
+
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
 
     permissions:
       contents: write
 
     steps:
-      - name: Checkout code
+      - name: Checkout site repo
         uses: actions/checkout@v4
 
-      - name: Pull Notes
+      - name: Checkout vault
         uses: actions/checkout@v4
         with:
-          repository: 'yungen-lu/obsidian-notes'
+          repository: 'yungen-lu/vault'
           token: ${{ secrets.NOTE_TOKEN }}
-          path: ./tmp
+          path: ./vault
 
-      - name: Sync files
-        run: |
-          rm -rf content
-          cp -r ./tmp/Blog content
-          rm -rf ./tmp
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Sync content
+        run: uv run scripts/sync_from_vault.py ./vault content
+
+      - name: Clean up vault checkout
+        run: rm -rf ./vault
+
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: ${{ github.event.client_payload.message }}
-
