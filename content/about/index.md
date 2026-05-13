@@ -1,6 +1,6 @@
 ---
 title: About
-lastmod: 2026-05-13 11:21:34-07:00
+lastmod: 2026-05-13 14:23:54-07:00
 date: 2026-05-13T11:20:49-0700
 draft: false
 ---
@@ -20,8 +20,11 @@ Sep 2021 – Jun 2024
 
 ### Work Experience
 
+**Software Engineer Intern** @ [Rivian and Volkswagen Group Technologies](https://rivianvw.tech/)
+May 2025 – Present
+
 **Software Engineer Intern** @ [MaiAgent](https://maiagent.ai) (formerly Playma)
-Feb 2025 – Present
+Feb 2025 – Jun 2025
 
 - Developed new **RESTful APIs** and features with **Django** while streamlining DevOps automation for the MaiAgent AI platform, gaining 6 new partners, including CTBC Bank, MSI, and HPE
 - Reduced CNAME vanity domain setup time by over **80%** for our the MaiAgent AI platform by developing a backend service that automates **CDN** provisioning and SSL/TLS certificate management on **AWS CloudFront**
