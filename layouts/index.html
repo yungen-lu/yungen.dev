@@ -1,12 +1,12 @@
 {{ define "main" }}
-
-<!-- <header>
-    <h1>{{ $.Site.Title }}</h1>
-    {{- if $.Site.Params.theme_config.show_description -}}
-        <p>{{ $.Site.Params.description }}</p>
-    {{- end -}}
-</header>
-{{ .Content }} -->
-{{ partial "menu_item.html" (dict "context" . "collection" $.Site.Data.menu.entries) }}
-
+{{ .Content }}
+<h2>Recent posts</h2>
+<ul class="blog-posts">
+  {{ range first 10 (where .Site.RegularPages "Section" "in" (slice "blog" "reviews")) }}
+  <li>
+    <span><i><time datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}</time></i></span>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </li>
+  {{ end }}
+</ul>
 {{ end }}
