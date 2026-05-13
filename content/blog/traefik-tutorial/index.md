@@ -1,12 +1,12 @@
 ---
 title: traefik tutorial
 description: A traefik tutorial I wrote for AInimal meetings
-date: 2022-02-01T00:00:00+08:00
-lastmod: 2025-02-09T14:36:26+08:00
-draft: false
-category: "[[Posts]]"
 tags:
-  - posts
+- technical
+lastmod: 2026-04-11 22:22:29-05:00
+date: 2026-04-11T22:19:52-0500
+draft: false
+publishDate: 2022-02-01
 ---
 
 # 前言
@@ -73,7 +73,7 @@ entryPoints:
 1. EntryPoint: traefik 預設 router 會監聽每一個 entryPoint ，但我們也可以設定成指監聽某幾個 entryPoint 。以下範例我們設置一個 Router 名稱為 “myrouter” 並指定其 entryPoint 為 web2
     
     `example-docker-compose.yaml`
-    
+
     ```yaml
     version: "3.8"
     
@@ -84,11 +84,11 @@ entryPoints:
           - "traefik.enable=true"
     			- - "traefik.http.routers.myrouter.entrypoints=web2" # <- "myrouter" 為使用者自己定義的名稱
     ```
-    
+
 2. Rule: traefik 會根據使用者設定的 rule 決定 request 會到哪一個 router 。以下範例我們設置一個 rule 只讓 host 名稱為 `myserverdomainname.com` 的 request 進到此 router 。
     
     `example-docker-compose.yaml`
-    
+
     ```yaml
     version: "3.8"
     
@@ -100,13 +100,11 @@ entryPoints:
     		  - "traefik.http.routers.myrouter.entrypoints=web2"
     			- "traefik.http.routers.myrouter.rule=Host(`myserverdomainname.com`)"
     ```
-    
+
     以上範例為使用 `Host()` 來設置 rule ，其實還有許多方法 `Method()`、`Path()`...，更多方法可以參考 [官網](https://doc.traefik.io/traefik/routing/routers/#rule)。
     
 3. Priority: 在設置 rule 時可能發生 request 同時滿足兩個 router 的 rule，這時後需要設定 Priority 才能決定 request 要轉送到哪個 router 。
-    
 4. Middlewares: 我們可以針對 route 設定 middleware ，在 request 轉送到 service 之前對其處理，詳細的設置內容會在下一個章節提到。
-    
 5. Service: 每一個 route 必須指定一個 service 作為目標，當 request 進到該 router 後會轉送到目標 service 。這時候你可能會想：為什麼需要一個 service 呢？直接將 router 目標指向某個 後端應用程式的 url 就好了啊？原因是 traefik 除了提供 reverse proxy 以外還有 LoadBalancer 的功能，透過接下來的範例能更清楚了解。
     
     在 traefik 中需要另外設置 service ，我們先以 config file 的形式再以 docker-compose 的設定方式能更了解 traefik 的 service 是如何運作的。
@@ -114,7 +112,7 @@ entryPoints:
     以下為 config file 形式的 service 設定，其中我們設置一個名稱為 `my-service` 的 service
     
     `traefik.yaml`
-    
+
     ```yaml
     http:
       services:
@@ -124,13 +122,13 @@ entryPoints:
             - url: "<http://private-ip-server-1/>"
             - url: "<http://private-ip-server-2/>"
     ```
-    
+
     從以上的 config file 可以知道當 request 從某個 router 轉送到 “my-service” 時有可能被轉送到 "[http://private-ip-server-1/](http://private-ip-server-1/)" 以及 "[http://private-ip-server-2/](http://private-ip-server-2/)" 而會轉送到哪一個 url 是根據 [Round-robin](https://en.wikipedia.org/wiki/Round-robin_scheduling) 演算法。
     
     以下為 docker-compose 的設定，其中我們設置一個名稱為 `my-service` 的 service ，而這個 service 會與 container 的 port 80 連結。
     
     `example-docker-compose.yaml`
-    
+
     ```yaml
     version: "3.8"
     
@@ -144,13 +142,13 @@ entryPoints:
     			- "traefik.http.services.my-service.loadbalancer.server.port=80"
     			
     ```
-    
+
     從以上 docker-compose 可發現若我們使用 labels 設定 service ， traefik 會自動將該 container 與設定的 service 連結，我們不需要像 config file 那樣設置 “url” 。
     
     最後我們需要將該 router 指向一個 service 。在以下範例我們設置 Router 名稱為 `myrouter` 指向一個名稱為 `my-service` 的 service
     
     `example-docker-compose.yaml`
-    
+
     ```yaml
     version: "3.8"
     
@@ -164,7 +162,7 @@ entryPoints:
     			- "traefik.http.services.my-service.loadbalancer.server.port=80"
     			- "traefik.http.routers.myrouter.service=my-service"
     ```
-    
+
 6. TLS: traefik 的功能也包含處理 HTTPS 連線，此設定較為複雜，可參考另一篇文章（未完成）。
     
 
@@ -265,7 +263,7 @@ providers:
     我們需要先將 docker 的 socket mount 到 traefik container 中，這樣 traefik 才能從 docker socket 獲取資訊，接著將設定檔 traefik.yaml mount 到 traefik container 中。備註：其中 `....:ro` 代表 read only 。
     
     `docker-compose.yaml`
-    
+
     ```yaml
     version: "3.8"
     
@@ -278,11 +276,11 @@ providers:
           - "/var/run/docker.sock:/var/run/docker.sock:ro"
           - "./traefik.yaml:/traefik.yaml:ro" # 將上述建立的 static config mount 到 container 中
     ```
-    
+
     接著我們設定 docker-compose 的 預設 network ，讓 docker-compose 裡的 container 預設都是使用 `$DEFAULT_NETWORK` 作為 docker network 。
     
     `docker-compose.yaml`
-    
+
     ```yaml
     version: "3.8"
     
@@ -300,7 +298,7 @@ providers:
         external:
           name: $DEFAULT_NETWORK # 在此範例相當於 "mynetwork"
     ```
-    
+
     這時候我們執行 docker-compose `docker-compose -f docker-compose.yaml up -d` 來測試 traefik container 是否能正確運行。
     
     如果 traefik 成功啟動，在執行上述指令後應該會出現 “Creating traefik ... done” 。我們可以透過指令 `docker logs traefik` 來查看 logs ，若 traefik 成功讀取 config file 則 logs 中會出現 “Configuration loaded from file: /traefik.yml” 。
@@ -311,14 +309,14 @@ providers:
     
     設置 domain name A record ，指向伺服器 IP，以下範例設置了 [whoami.ainimal.io](http://whoami.ainimal.io) 以及 [podinfo.yungen.me](http://podinfo.yungen.me) 兩個 A record
     
-    ![截圖 2022-01-25 下午1.35.48](traefik%20tutorial-17ECCE36C3491852E6D39E0B1199840E.png)
+    ![](traefik-tutorial-17ecce36c3491852e6d39e0b1199840e.png)
     
 - 設定 whoami podinfo container
     
     我們接下來在 docker-compose file 中增加 whoami container
     
     `docker-compose.yaml`
-    
+
     ```yaml
     version: "3.8"
     
@@ -345,13 +343,13 @@ providers:
         external:
           name: $DEFAULT_NETWORK
     ```
-    
+
     從以上範例中可以看到我們設置了 Router: `whoami-router` 、 Service: `whoami-service` ，並將 Router 的 rule 設定為 `Host(`whoami.$MY_DOMAIN`)` ，也就是說只有 request host 為 `whoami.$MY_DOMAIN` 才能進入這個 Router 。
     
     設定 podinfo container 與 whoami 大同小異
     
     `docker-compose.yaml`
-    
+
     ```yaml
     version: "3.8"
     
@@ -387,15 +385,15 @@ providers:
         external:
           name: $DEFAULT_NETWORK
     ```
-    
+
     執行 `docker-compose -f docker-compose.yaml up -d`
     
     這時候若我們對 [whoami.ainimal.io](http://whoami.ainimal.io) 以及 [podinfo.ainimal.io](http://podinfo.ainimal.io) 發送 request 會得到相對應的 response ，如下圖：
     
     [whoami.ainimal.io](http://whoami.ainimal.io)
     
-	![截圖 2022-02-04 下午7.49.44](traefik%20tutorial-436A7175BDF79A0C606BCC438413D643.png)
+	![](traefik-tutorial-436a7175bdf79a0c606bcc438413d643.png)
 	
     [podinfo.ainimal.io](http://podinfo.ainimal.io)
     
-	![截圖 2022-02-04 下午7.50.02](traefik%20tutorial-9B06ED14F596BE281FD07E3100C095D8.png)
+	![](traefik-tutorial-9b06ed14f596be281fd07e3100c095d8.png)

@@ -1,13 +1,13 @@
 ---
-lastmod: 2025-07-21T11:08:09+08:00
 title: My MacBook Setup
-description: 
-date: 2025-07-12T23:41:27+08:00
-publishDate: 2025-07-12T23:41:27+08:00
-draft: false
 tags:
-  - posts
+- technical
+lastmod: 2026-04-11 22:18:15-05:00
+date: 2026-04-11T22:17:57-0500
+draft: false
+publishDate: 2025-07-12
 ---
+
 My philosophy for my setup is to keep things minimal. I never install an app just because “everyone uses it.” Instead of one big bloated app that does a lot of things averagely, I prefer multiple small apps that each do one thing well. I wrote this to keep track of what I’ve installed and to help me re-examine which apps I really need.
 
 # Productivity

@@ -1,12 +1,12 @@
 ---
 title: traefik & let’s encrypt
 description: A traefik & let's encrypt tutorial I wrote for AInimal meetings
-date: 2022-02-04T00:00:00+08:00
-lastmod: 2025-02-09T14:37:23+08:00
-draft: false
-category: "[[Posts]]"
 tags:
-  - posts
+- technical
+lastmod: 2026-04-11 22:19:35-05:00
+date: 2026-04-11T22:18:52-0500
+draft: false
+publishDate: 2022-02-04
 ---
 
 # 前言
@@ -48,21 +48,21 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
 - 建立 `acme.json` 檔案
     
     延續上一篇文章，我們在 traefik-example 目錄中建立一個空的 acme.json 檔案
-    
+
     ```bash
     touch acme.json
     ```
-    
+
     接著將他的權限改為 600 （只有擁有者有讀寫權限）
-    
+
     ```bash
     chmod 600 acme.json
     ```
-    
+
 - 將此檔案 mount 到 traefik container 中
     
     `docker-compose.yaml`
-    
+
     ```yaml
     version: "3.8"
     
@@ -78,14 +78,13 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
           - "./acme.json:/acme.json"
       ## 以下省略...
     ```
-    
 
 當我們設定好 HTTPS 後使用者會通過 port 443 與 traefik 連線，所以我們先在 docker-compose 中打開 port 443
 
 - 打開 port 443
     
     `docker-compose.yaml`
-    
+
     ```yaml
     version: "3.8"
     
@@ -102,14 +101,13 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
           - "./acme.json:/acme.json"
       ## 以下省略...
     ```
-    
 
 別忘了新增一個 entrypoint
 
 - 新增 “websecure” entrypoint
     
     `traefik.yaml`
-    
+
     ```yaml
     entryPoints:
       web:
@@ -117,7 +115,6 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
       websecure:
     		address: ":443"
     ```
-    
 
 ## 透過 HTTP-01 考驗
 
@@ -126,7 +123,7 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
     以下範例設置名稱為 `lets-encrypt-resolver` 的 certificates resolvers ，並指定其驗證方法為 HTTP-01 考驗，且儲存憑證的檔案名為 `acme.json` 。
     
     `traefik.yaml`
-    
+
     ```yaml
     entryPoints:
       web:
@@ -142,7 +139,7 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
           httpChallenge:
             entryPoint: web
     ```
-    
+
     這邊需要注意的是因為我們使用 HTTP-01 考驗 `entryPoint` 這邊一定要設置為 port 80 的 entrypoint 。
     
     traefik 的 `caServer` 預設為 [`*<https://acme-v02.api.letsencrypt.org/directory`>](https://acme-v02.api.letsencrypt.org/directory) 若改成 * [`https://acme-staging-v02.api.letsencrypt.org/directory`](https://acme-staging-v02.api.letsencrypt.org/directory) 則 traefik 就會頒發測試用憑證。
@@ -154,7 +151,7 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
     以下範例將名稱為 `whoami-router` 的 router 設定其 certificates resolvers 為 `lets-encrypt-resolver`
     
     `docker-compose.yaml`
-    
+
     ```yaml
     version: "3.8"
     
@@ -181,9 +178,9 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
           - "traefik.http.routers.whoami-router.tls.certresolver=lets-encrypt-resolver"
      ## 以下省略...
     ```
-    
+
     別忘了將 whoami container 的 entrypoint 改成 https （範例為：`websecure`）
-    
+
     ```yaml
     version: "3.8"
     
@@ -210,7 +207,6 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
           - "traefik.http.routers.whoami-router.tls.certresolver=lets-encrypt-resolver"
      ## 以下省略...
     ```
-    
 
 ## 透過 DNS-01 考驗
 
@@ -223,7 +219,7 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
     以下範例設置名稱為 `lets-encrypt-resolver` 的 certificates resolvers ，並指定其驗證方法為 DNS-01 考驗，且儲存憑證的檔案名為 `acme.json` 。
     
     `traefik.yaml`
-    
+
     ```yaml
     entryPoints:
       web:
@@ -242,7 +238,7 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
               - "1.1.1.1:53"
               - "8.8.8.8:53"
     ```
-    
+
     這邊需要注意的是要將 `provider` 設定為自己的 DNS 機構。
     
 - 設置 DNS-01 考驗所需要的環境變數
@@ -252,14 +248,14 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
     以下範例使用 cloudflare 作為 provider ，需要 `CF_API_EMAIL` `CF_API_KEY` 環境變數
     
     `.env`
-    
+
     ```bash
     MY_DOMAIN=ainimal.io
     DEFAULT_NETWORK=mynetwork
     CF_API_EMAIL=example@gmail.com
     CF_API_KEY=93klas1ks93cnqi22kk8fk
     ```
-    
+
 - 設置 whoami podinfo
     
     當我們設置完 certificates resolvers 後，需要指定 router 使用 certificates resolvers ，讓所有進入到此 router 的 https request 能夠成功解密。
@@ -267,7 +263,7 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
     以下範例將名稱為 `whoami-router` 的 router 設定其 certificates resolvers 為 `lets-encrypt-resolver`
     
     `docker-compose.yaml`
-    
+
     ```yaml
     version: "3.8"
     
@@ -294,14 +290,13 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
           - "traefik.http.routers.whoami-router.tls.certresolver=lets-encrypt-resolver"
      ## 以下省略...
     ```
-    
 
 若我們想要用到 DNS-01 考驗才有的功能 wild card 憑證就會需要修改 entrypoint 的 tls 設定，此處的 tls 設定為預設設定，若使用者在 router 中有自定義 tls 設定則會自動忽略此設定。
 
 - 修改 entrypoint 設定
     
     traefik.yaml
-    
+
     ```yaml
     entryPoints:
       web:
@@ -327,13 +322,13 @@ traefik 是透過 ACME 的方式去獲取憑證，所以我們要事先準備好
               - "1.1.1.1:53"
               - "8.8.8.8:53"
     ```
-    
+
 - 設置 whoami podinfo
     
     當我們設置過預設 tls 後就不需要再特別設定 tls 了。
     
     `docker-compose.yaml`
-    
+
     ```yaml
     version: "3.8"
     

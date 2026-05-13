@@ -1,12 +1,12 @@
 ---
 title: MQTT short note
 description: A note I wrote for AInimal meetings
-date: 2022-03-18T00:00:00+08:00
-lastmod: 2025-02-09T14:38:00+08:00
-draft: false
-category: "[[Posts]]"
 tags:
-  - posts
+- technical
+lastmod: 2026-04-11 22:17:37-05:00
+date: 2026-04-11T22:17:17-0500
+draft: false
+publishDate: 2022-03-18
 ---
 
 # What is mqtt
@@ -165,7 +165,7 @@ message CodeResponse {
 # 補充
 
 - exhook
-    
+
     ```protobuf
     service HookProvider {
     
@@ -212,9 +212,9 @@ message CodeResponse {
       rpc OnMessageAcked(MessageAckedRequest) returns (EmptySuccess) {};
     }
     ```
-    
+
 - exproto
-    
+
     ```protobuf
     service ConnectionAdapter {
     

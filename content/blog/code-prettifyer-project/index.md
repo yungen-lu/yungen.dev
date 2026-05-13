@@ -1,12 +1,13 @@
 ---
 title: Code-Prettifyer project
-description: “Testing leads to failure, and failure leads to understanding.” - Burt Rutan
-date: 2021-01-11T00:00:00+08:00
-lastmod: 2025-02-09T14:38:14+08:00
-draft: false
-category: "[[Posts]]"
+description: “Testing leads to failure, and failure leads to understanding.” - Burt
+  Rutan
 tags:
-  - posts
+- technical
+lastmod: 2026-04-11 22:09:31-05:00
+date: 2026-04-11T22:07:07-0500
+draft: false
+publishDate: 2021-01-11
 ---
 
 ## 前言
@@ -145,8 +146,6 @@ fastcgi_index                 index.php;
 ```
 docker network create web
 ```
-
-
 
 ```shell
 docker-compose up -d

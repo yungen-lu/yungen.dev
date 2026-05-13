@@ -1,12 +1,12 @@
 ---
 title: kubernetes basics
 description: A short tutorial for selab
-date: 2022-03-09T00:00:00+08:00
-lastmod: 2025-02-09T14:38:06+08:00
-draft: false
-category: "[[Posts]]"
 tags:
-  - posts
+- technical
+lastmod: 2026-04-11 22:16:09-05:00
+date: 2026-04-11T22:09:43-0500
+draft: false
+publishDate: 2022-03-09
 ---
 
 # Wow Docker 好方便！那他跟 kubernetes 差在哪裡？
@@ -19,7 +19,7 @@ tags:
 
 docker 的基本概念可以參考下圖
 
-![](kubernetes%20basics-164B808D0B00542B6FB5FFE53980125E.png)
+![](kubernetes-basics-164b808d0b00542b6fb5ffe53980125e.png)
 
 當使用者輸入 `docker ...` 其實是在告訴 docker engine(container engine) 使用者要跑一些 image 這時候 docker engine 就會告訴 containerd (container runtime) 該做什麼事（比如說要 pull image 、 建立 container 之類的）containerd 就會根據 docker engine 的指令做事。（備註： 圖中的 runc 其實也是 container runtime 因為 container runtime 有分 high level 與 low level ...）
 
@@ -48,7 +48,7 @@ kubernetes 不能算是一個軟體、一套軟體，將他形容為一套系統
 
 如果你要在五台機器上跑 container 你會怎麼做？你可能會想透過手動的方式一台一台運行。那假設有 20 台怎麼辦？或許你會想用 script 或 ansible 之類的工具自動化這個流程。那如果 container 跟 container 之間要在同一台機器、甚至是跨機器溝通怎麼辦？⋯⋯還好我們不需要面對接下來的種種麻煩因為 Google 工程師早就在老早前就想過這個問題了，所以就開發了 Kubernetes 這個系統去解決這個問題。
 
-![](kubernetes%20basics-EFC5A05D1199B3F29FF30A681D1A7C28.jpeg)
+![](kubernetes-basics-efc5a05d1199b3f29ff30a681d1a7c28.jpeg)
 
 ## 名詞解釋
 
@@ -165,7 +165,7 @@ spec:
 
 疑？是不是很像之前講的 container engine, container runtime 的架構？沒錯！但有一點不同的是 kubelet 與 container runtime 中間有一層 CRI(Container Runtime Interface)，可以參考下圖：
 
-![container-ecosystem.drawio-2.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/75cb9d08-2f32-409e-8d16-5457b63f3623/container-ecosystem.drawio-2.png)
+![](container-ecosystem-drawio-2.png)
 
 為什麼要在多一層 CRI ？因為 kubernetes 並沒有綁定一定要用哪一個 container runtime ，而是定義一個規範（CRI）所有支援此規範的 container runtime 都可運行，讓使用者在架設 kubernetes 時有更多的彈性。
 

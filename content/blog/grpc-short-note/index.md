@@ -1,12 +1,12 @@
 ---
 title: gRPC short note
 description: A note I wrote for AInimal meetings
-date: 2022-03-04T00:00:00+08:00
-lastmod: 2025-02-09T14:38:10+08:00
-draft: false
-category: "[[Posts]]"
 tags:
-  - posts
+- technical
+lastmod: 2026-04-11 22:09:32-05:00
+date: 2026-04-11T22:08:55-0500
+draft: false
+publishDate: 2022-03-04
 ---
 
 # What is gRPC
@@ -26,7 +26,6 @@ tags:
     protobuf: `0x08 0x2a` (2 bytes) → gRPC 的傳輸方式
     
 2. 傳輸方式只有一種（client 發送 request, server 給予 response）
-    
 3. ...
     
 
