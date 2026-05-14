@@ -1,11 +1,9 @@
 ---
 title: About
-lastmod: 2026-05-13 14:23:54-07:00
+lastmod: 2026-05-14 08:51:11-07:00
 date: 2026-05-13T11:20:49-0700
 draft: false
 ---
-
-## Yung-En Lu
 
 ### Education
 
@@ -103,8 +101,8 @@ My personal bookmark website that automatically syncs with my Notion notes throu
 
 ### Publications
 
-- **Yung-En Lu** and Shin-Jie Lee, “Prompt Optimization with Human Annotations Using Pairwise Comparison,” in *Proceedings of the IEEE International Conference on e-Business Engineering (ICEBE)*, 2024, pp. 15–22, doi: 10.1109/ICEBE62490.2024.00012.
-- Chun-Chuan Chen, Meng-Chang Tsai, Eric Hsiao-Kuang Wu, Shao-Rong Sheng, Jia-Jeng Lee, **Yung-En Lu**, Shih-Ching Yeh, “Fusion model using resting neurophysiological data to help mass screening of methamphetamine use disorder,” *IEEE Journal of Translational Engineering in Health and Medicine*, doi: 10.1109/JTEHM.2024.3522356.
+- “Prompt Optimization with Human Annotations Using Pairwise Comparison,” in *Proceedings of the IEEE International Conference on e-Business Engineering (ICEBE)*, 2024, pp. 15–22, doi: 10.1109/ICEBE62490.2024.00012.
+- “Fusion model using resting neurophysiological data to help mass screening of methamphetamine use disorder,” *IEEE Journal of Translational Engineering in Health and Medicine*, doi: 10.1109/JTEHM.2024.3522356.
 
 ### Activities
 
