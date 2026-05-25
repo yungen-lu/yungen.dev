@@ -13,17 +13,17 @@ jobs:
 
     steps:
       - name: Checkout site repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Checkout vault
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: 'yungen-lu/vault'
           token: ${{ secrets.NOTE_TOKEN }}
           path: ./vault
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b
 
       - name: Sync content
         run: uv run scripts/sync_from_vault.py ./vault content
@@ -32,6 +32,6 @@ jobs:
         run: rm -rf ./vault
 
       - name: Commit
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: ${{ github.event.client_payload.message }}
