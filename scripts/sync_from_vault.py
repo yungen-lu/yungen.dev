@@ -109,7 +109,7 @@ def process(md_path: Path, blog_root: Path, content_dir: Path, attachments_dir: 
     out_dir.mkdir(parents=True, exist_ok=True)
     out_md = out_dir / "index.md"
 
-    with out_md.open("wb") as f:
+    with out_md.open("w") as f:
         frontmatter.dump(post, f, sort_keys=False, allow_unicode=True)
 
     for original, new_name in pending:
