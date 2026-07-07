@@ -1,11 +1,12 @@
 ---
 title: Reflections on Week 4 & 5 at RV Tech
-lastmod: 2026-06-24 01:25:03-07:00
+lastmod: 2026-07-07 01:56:41-07:00
 date: 2026-06-19T12:42:06-0700
 draft: false
 publishDate: 2026-06-23
 ---
 
+![](r0000009.jpg)
 Over the past two weeks I spent time refining my own AI workflow, and I'd like to share some of my thoughts about it.
 
 ## Using AI is an engineering problem

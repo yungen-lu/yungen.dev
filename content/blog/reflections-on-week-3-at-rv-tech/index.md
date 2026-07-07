@@ -6,6 +6,7 @@ draft: false
 publishDate: 2026-06-06
 ---
 
+![](r0000007.jpg)
 We had an incident this week. The team met to talk it through, but the meeting stayed on the incident itself; the idea of a Datadog dashboard never came up. After it ended, my mentor went and built one that captures the events when we get a spike of errors, and shared it with the team. That isn't even his role, he's not a DevOps engineer. He just saw something that would help and built it. That is when I truly understood what the Amazon Leadership Principle "Bias for Action" means.
 
 My own week was the counterexample. After I got the first round of feedback on my design doc, I went back and refined it. At that point I could have created the Jira issue from what we already agreed on and started implementing. Instead I wanted to share the doc again, host another meeting, go over every detail, and only then start. A better move (what other engineers on our team do) is to create the Jira issue, post it in Slack, tag someone for feedback, and start building while the feedback comes in.
