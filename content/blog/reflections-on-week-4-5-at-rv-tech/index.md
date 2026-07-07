@@ -23,12 +23,12 @@ That last step matters. Because the workflow is a project, you have to think abo
 
 ## Context, Context, Context
 
-When setting up the workflow, one of the first questions is: what should I put in the context? The context window is limited, so you can't just dump everything in. And sometimes when you give the LLM more information than it needs, it overthinks things. So what should I actually disclose to it? The question becomes one of context engineering: what information should I give the LLM so that it gives me the maximum engineering value. Note that I didn't say maximum code quality, I said engineering value.
+When setting up the workflow, one of the first questions is: what should I put in the context? The context window is limited, so you can't just dump everything in. And sometimes when you give the LLM more information than it needs, it overthinks things. So what should I disclose to it? The question becomes one of context engineering: what should I give the LLM so it returns the most engineering value. Note that I didn't say maximum code quality, I said engineering value.
 
 For example, when I am working on feature A and change something that might affect feature B, I would want the AI to remind me to update the related Jira issue or design doc, and even suggest who to ask when I run into a problem. And when I later work on feature B, I would want the AI to already know that feature A affected it, and take that into account while writing the code.
 
-There is also a problem I think most engineers will hit: the context window is limited, and at some point you reach that limit before you finish the feature or the fix. How do you compress or cut the information from past interactions without the AI forgetting the details that matter?
+There is also a problem I think most engineers will hit: at some point you reach the context limit before you finish the feature or the fix. How do you compress or cut the information from past interactions without the AI forgetting the details that matter?
 
 ## No workflow fits everyone
 
-Obviously, there is no workflow, tool, or method that fits everyone. Every company has its own culture, every team has its own way of doing things, and most important, everyone interacts with AI in their own way.
+Obviously, there is no workflow, tool, or method that fits everyone. Every company has its own culture, every team has its own way of doing things, and most importantly, everyone interacts with AI in their own way.

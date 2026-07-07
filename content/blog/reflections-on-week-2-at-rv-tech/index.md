@@ -20,24 +20,26 @@ Our service already sends event messages to service B through AWS SNS. My new fe
 
 The lesson: don't assume an existing design decision is correct and copy it. The people who made it had context I didn't, and sometimes that context has already changed.
 
-A manager from the OTA Updater team noticed my design doc and messaged me a few days later. He wasn't on the team I'd asked for feedback, he was just curious about the feature I was building and how to use it. We had a great conversation.
+## Don't be afraid to put your work out there
+
+After I drafted my design doc, my mentor asked me to post it in a public Slack channel for the OTA teams and ask the engineers there for feedback. I was a bit nervous at first, but after I posted it I found out that not many people were interested in my work, and few of them gave me feedback. That was expected: the feature I was developing wasn't that important to them. But a day or two later, a senior engineer who sits near me asked me questions about the feature I was working on. He wasn't on the team I'd asked for feedback; he was just curious about it. We had a great conversation.
 
 ## AI
 
 Whenever I ask my mentor something, he often says "try asking AI" and opens Claude Code right there. When I run into a problem where I know exactly what to look up, I still do it the old way: to find a function I open the editor and search the name; when a package fails to install I read the file and Google the error. I know AI can hallucinate, so I still trust the data and docs I find online. In my mind I still need some kind of proof to convince me that I got the correct answer.
 
-Part of me holds a pride in solving things the old way. But AI is powerful enough now that you can make it do things you don't understand, and using it in front of people makes me afraid it signals I don't actually understand what I'm doing.
+Part of me takes pride in solving things the old way. But AI is powerful enough now that you can make it do things you don't understand, and using it in front of people makes me afraid it signals I don't understand what I'm doing.
 
 I'm still exploring this. I'm really curious how senior engineers use AI to write code (if only I could watch over their shoulder while they work...). I'm going to sit with it and write more next week.
 
 ## Match the effort to how the code will be read
 
-From a friend who contributes to the Linux kernel, I learned that when you submit a patch to the Linux kernel, reviewers read it commit by commit, so the order, the message, and the description of each one count. I tried to apply the same effort to my first MR, and in the end I realized that for this kind of MR I really don't need to make everything perfect, because nobody is going to read it commit by commit.
+From a friend who contributes to the Linux kernel, I learned that reviewers there read a patch commit by commit, so the order, the message, and the description of each one count. I tried to apply the same effort to my first MR, and in the end I realized that for this kind of MR I really don't need to make everything perfect, because nobody is going to read it commit by commit.
 
 The part I changed will be obsolete after we upgrade the framework, so it is probably not worth the effort on the git descriptions. Perfect commits matter when you're changing complex logic that someone has to understand piece by piece.
 
 ## Knowing your team
 
-What still bothers me is how distant I feel from my own teammates. Most of them work remote, and I barely interact with them. What I noticed is that I interact more with engineers on a different team, mainly because they sit near me. Physical proximity bonds people fast. Bonding over Zoom is much harder.
+What still bothers me is how distant I feel from my own teammates. Most of them work remotely, and I barely interact with them. I've noticed I interact more with engineers on a different team, mainly because they sit near me. Physical proximity bonds people fast. Bonding over Zoom is much harder.
 
 As an introvert, reaching out to people I don't know is hard (or maybe that's an excuse). It's easier when the interaction is forced in some way: someone sits next to me, we're in the same room for a meeting, or somebody sets up a 1:1. Remote work removes all of those forced moments, so with my own team there's nothing pushing us together.
