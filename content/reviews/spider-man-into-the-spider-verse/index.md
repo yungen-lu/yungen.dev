@@ -1,8 +1,12 @@
 ---
 title: 'Spider-Man: Into the Spider-Verse'
+medium: film
+creator: Persichetti, Ramsey & Rothman
+year: 2018
 tags:
 - reviews
-lastmod: 2026-04-11 22:31:08-05:00
+coverImage: '[[Spider-Man- Into the Spider-Verse (2018).jpg]]'
+lastmod: 2026-07-11 13:20:09-07:00
 date: 2026-04-11T22:29:56-0500
 draft: false
 publishDate: 2019-04-01
