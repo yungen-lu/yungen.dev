@@ -11,6 +11,7 @@ import lustre/element/html
 import simplifile
 import yungen_dev/components
 import yungen_dev/layout
+import yungen_dev/paths
 import yungen_dev/routes
 import yungen_dev/util
 
@@ -55,7 +56,7 @@ pub fn tag_path(tag: String) -> String {
 }
 
 pub fn discover() -> List(String) {
-  case simplifile.get_files("./content") {
+  case simplifile.get_files(paths.content_dir) {
     Ok(files) ->
       files
       |> list.filter(fn(f) { string.ends_with(f, ".md") })

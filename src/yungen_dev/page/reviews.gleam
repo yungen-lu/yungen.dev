@@ -13,6 +13,7 @@ import mork
 import simplifile
 import yungen_dev/assets
 import yungen_dev/layout
+import yungen_dev/paths
 import yungen_dev/util
 
 type Review {
@@ -86,7 +87,7 @@ fn post_to_review(p: Post(Nil)) -> Review {
 }
 
 fn read_reviews() -> List(Review) {
-  case simplifile.get_files("./pages/reviews") {
+  case simplifile.get_files(paths.reviews_pages_dir()) {
     Ok(files) ->
       files
       |> list.filter(fn(f) { string.ends_with(f, ".md") })

@@ -8,10 +8,11 @@ import mork
 import simplifile
 import yungen_dev/assets
 import yungen_dev/layout
+import yungen_dev/paths
 import yungen_dev/util
 
 pub fn view(_posts: List(Post(Nil))) -> Element(Nil) {
-  let #(title, description, body_md) = read_page("./pages/about.md", "About")
+  let #(title, description, body_md) = read_page(paths.about_page(), "About")
   let opts =
     mork.configure()
     |> mork.tables(True)

@@ -9,6 +9,7 @@ import lustre/element.{type Element}
 import lustre/element/html
 import simplifile
 import yungen_dev/layout
+import yungen_dev/paths
 import yungen_dev/util
 
 type PhotoGroup {
@@ -41,7 +42,7 @@ pub fn view(_posts: List(Post(Nil))) -> Element(Nil) {
 }
 
 fn read_photo_groups() -> List(PhotoGroup) {
-  case simplifile.get_files("./pages/photos") {
+  case simplifile.get_files(paths.photos_pages_dir()) {
     Ok(files) ->
       files
       |> list.filter(fn(f) { string.ends_with(f, ".md") })

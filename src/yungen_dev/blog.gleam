@@ -19,13 +19,14 @@ import yungen_dev/page/photos
 import yungen_dev/page/post as post_page
 import yungen_dev/page/reviews
 import yungen_dev/page/tags
+import yungen_dev/paths
 import yungen_dev/routes
 import yungen_dev/util
 
 pub fn config() {
   let post_config =
     post.default()
-    |> post.path("./content")
+    |> post.path(paths.content_dir)
     |> post.route_builder(fn(meta) {
       util.route_path(meta.slug, meta.language, meta.extras)
     })
@@ -66,7 +67,7 @@ pub fn config() {
 
   let base =
     config.new(site_url)
-    |> config.output_dir("./dist")
+    |> config.output_dir(paths.dist_dir)
     |> config.post(post_config)
     |> config.route(routes.home, home.view)
     |> config.route(routes.about, about.view)
@@ -78,7 +79,7 @@ pub fn config() {
     |> config.atom_feed(atom_feed)
     |> config.sitemap(sitemap.new("/sitemap.xml"))
     |> config.robots(robots_config)
-    |> config.static_dir("./static")
+    |> config.static_dir(paths.static_dir)
 
   // Per-tag index pages. Blogatto routes are static, so discover the tag set
   // from the already-synced ./content before the build enumerates posts.
