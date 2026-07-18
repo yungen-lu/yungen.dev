@@ -6,6 +6,7 @@ import gleam/time/calendar
 import gleam/time/timestamp
 import lustre/element.{type Element}
 import lustre/element/html
+import str
 
 pub fn route_path(
   slug: String,
@@ -57,4 +58,15 @@ pub fn fm_scalar(fm: String, key: String) -> option.Option(String) {
   |> option.from_result
 }
 
+/// URL-safe slug for a tag name.
+pub fn tag_slug(tag: String) -> String {
+  str.slugify(tag)
+}
 
+/// Split a comma-separated `tags` value into trimmed, non-empty names.
+pub fn split_tags(raw: String) -> List(String) {
+  raw
+  |> string.split(",")
+  |> list.map(string.trim)
+  |> list.filter(fn(t) { t != "" })
+}

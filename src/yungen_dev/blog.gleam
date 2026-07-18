@@ -5,20 +5,21 @@ import blogatto/config/post
 import blogatto/config/post/code
 import blogatto/config/robots
 import blogatto/config/sitemap
-import frontmatter
 import gleam/list
 import gleam/option
-import gleam/result
-import gleam/string
 import gleam/time/timestamp
 import lustre/attribute
 import lustre/element.{type Element}
 import lustre/element/html
-import simplifile
 import smalto/lustre as smalto_lustre
-import str
 import yungen_dev/constant.{site_description, site_title, site_url}
-import yungen_dev/template
+import yungen_dev/page/about
+import yungen_dev/page/home
+import yungen_dev/page/photos
+import yungen_dev/page/post as post_page
+import yungen_dev/page/reviews
+import yungen_dev/page/tags
+import yungen_dev/routes
 import yungen_dev/util
 
 pub fn config() {
@@ -28,7 +29,7 @@ pub fn config() {
     |> post.route_builder(fn(meta) {
       util.route_path(meta.slug, meta.language, meta.extras)
     })
-    |> post.template(template.post)
+    |> post.template(post_page.template)
     |> post.p(util.long_image_to_figure)
     |> post.syntax_highlighting(
       code.default() |> code.smalto_config(highlight_config()),
@@ -67,11 +68,11 @@ pub fn config() {
     config.new(site_url)
     |> config.output_dir("./dist")
     |> config.post(post_config)
-    |> config.route("/", template.home)
-    |> config.route("/about", template.about)
-    |> config.route("/reviews", template.reviews)
-    |> config.route("/photos", template.photos)
-    |> config.route("/tags", template.tags_index)
+    |> config.route(routes.home, home.view)
+    |> config.route(routes.about, about.view)
+    |> config.route(routes.reviews, reviews.view)
+    |> config.route(routes.photos, photos.view)
+    |> config.route(routes.tags, tags.index)
     |> config.rss_feed(rss_base)
     |> config.rss_feed(rss.output(rss_base, "/index.xml"))
     |> config.atom_feed(atom_feed)
@@ -81,8 +82,8 @@ pub fn config() {
 
   // Per-tag index pages. Blogatto routes are static, so discover the tag set
   // from the already-synced ./content before the build enumerates posts.
-  list.fold(discover_tags(), base, fn(c, tag) {
-    config.route(c, "/tags/" <> tag_slug(tag), template.tag_page(tag))
+  list.fold(tags.discover(), base, fn(c, tag) {
+    config.route(c, tags.tag_path(tag), tags.page(tag))
   })
 }
 
@@ -113,51 +114,4 @@ fn highlight_config() -> smalto_lustre.Config(Nil) {
       html.span([attribute.class("tk-custom")], [element.text(value)])
     },
   )
-}
-
-fn discover_tags() -> List(String) {
-  case simplifile.get_files("./content") {
-    Ok(files) ->
-      files
-      |> list.filter(fn(f) { string.ends_with(f, ".md") })
-      |> list.flat_map(tags_in_file)
-      |> list.unique
-      |> list.sort(string.compare)
-    Error(_) -> []
-  }
-}
-
-fn tags_in_file(path: String) -> List(String) {
-  case simplifile.read(path) {
-    Ok(content) ->
-      case frontmatter.extract(content).frontmatter {
-        option.Some(fm) ->
-          fm
-          |> string.split("\n")
-          |> list.find_map(fn(line) {
-            case string.split_once(line, ":") {
-              Ok(#(k, v)) ->
-                case string.trim(k) {
-                  "tags" -> Ok(split_tags(v))
-                  _ -> Error(Nil)
-                }
-              Error(_) -> Error(Nil)
-            }
-          })
-          |> result.unwrap([])
-        option.None -> []
-      }
-    Error(_) -> []
-  }
-}
-
-fn split_tags(raw: String) -> List(String) {
-  raw
-  |> string.split(",")
-  |> list.map(string.trim)
-  |> list.filter(fn(t) { t != "" })
-}
-
-fn tag_slug(tag: String) -> String {
-  str.slugify(tag)
 }
