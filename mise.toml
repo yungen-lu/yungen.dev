@@ -1,0 +1,8 @@
+[tools]
+# match CI (.github/workflows/deploy.yml erlef/setup-beam). Keep in sync.
+erlang = "29.0.3"
+gleam = "1.17.0"
+rebar = "3.27.0"
+wrangler = "latest"
+terraform = "latest"
+
