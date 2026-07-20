@@ -1,37 +1,73 @@
-name: Sync content from vault
+name: Deploy (sync + build + Cloudflare Pages)
 
 on:
   repository_dispatch:
     types: [trigger-workflow]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: true
 
 jobs:
-  sync:
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-
+  deploy:
+    runs-on: ubuntu-24.04
     steps:
-      - name: Checkout site repo
-        uses: actions/checkout@v6
+      - name: Checkout site code
+        uses: actions/checkout@v7
 
-      - name: Checkout vault
-        uses: actions/checkout@v6
+      - name: Checkout vault (read-only, sparse)
+        uses: actions/checkout@v7
         with:
-          repository: 'yungen-lu/vault'
-          token: ${{ secrets.NOTE_TOKEN }}
-          path: ./vault
+          repository: yungen-lu/vault
+          ssh-key: ${{ secrets.VAULT_SSH_KEY }}
+          path: vault
+          sparse-checkout: |
+            Notes/Blog
+            Notes/Movies
+            Notes/Anime
+            Notes/Books
+            Attachments
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b
-
-      - name: Sync content
-        run: uv run scripts/sync_from_vault.py ./vault content
-
-      - name: Clean up vault checkout
-        run: rm -rf ./vault
-
-      - name: Commit
-        uses: stefanzweifel/git-auto-commit-action@v7
+      - name: Set up Erlang + Gleam
+        uses: erlef/setup-beam@v1
         with:
-          commit_message: ${{ github.event.client_payload.message }}
+          otp-version: "29.0.3"
+          gleam-version: "1.17.0"
+          rebar3-version: "3.27.0"
+
+      - name: Install libvips + HEIC (HEVC) decoder
+        run: sudo apt-get update && sudo apt-get install -y libvips-tools libheif-plugin-libde265
+
+      - name: Download deps
+        run: gleam deps download
+
+      - name: Test
+        run: gleam test
+
+      # Persist the external-link annotation cache across runs, so sync only
+      # fetches Wikipedia/GitHub for links it hasn't seen before.
+      - name: Restore annotation cache
+        uses: actions/cache@v6
+        with:
+          path: static/metadata/annotations.json
+          key: annotations-${{ github.run_id }}
+          restore-keys: annotations-
+
+      - name: Sync vault into ./content
+        run: gleam run -m yungen_dev/sync -- ./vault
+
+      - name: Build site into ./dist
+        run: gleam run
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=yungen-dev-gleam-staging
