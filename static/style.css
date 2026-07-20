@@ -1,0 +1,743 @@
+:root {
+  color-scheme: light dark;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+    Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+
+  --measure: 42rem;
+
+  --bg: #ffffff;
+  --surface: #f6f2ec;
+  --text: #23201c;
+  --muted: #857b70;
+  --faint: #b3a898;
+  --link: #8d6959;
+  --link-ink: #6f5040;
+  --link-visited: #9a7a68;
+  --rule: #eae4d9;
+  --code-bg: #f4f0e8;
+  --mark: #f2e2b8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #191713;
+    --surface: #232019;
+    --text: #e9e1d3;
+    --muted: #9a9082;
+    --faint: #6b6154;
+    --link: #cba489;
+    --link-ink: #dab89e;
+    --link-visited: #b79d86;
+    --rule: #2f2a22;
+    --code-bg: #221f18;
+    --mark: #4a3f22;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: 2rem 1.25rem 5rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Masthead / footer chrome (mono utility voice) --- */
+.masthead {
+  font-family: var(--mono);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--rule);
+}
+.masthead a {
+  color: inherit;
+  text-decoration: none;
+}
+.masthead .site-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+.masthead .site-title:hover {
+  color: var(--link-ink);
+}
+.masthead nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 1.05rem;
+  align-items: baseline;
+}
+.masthead nav a {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.masthead nav a:hover {
+  color: var(--text);
+}
+.masthead nav a.active {
+  color: var(--link);
+  border-bottom: 2px solid var(--link);
+  padding-bottom: 2px;
+}
+
+.site-footer {
+  font-family: var(--mono);
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+/* --- Links --- */
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+  text-decoration-thickness: 0.06em;
+}
+a:visited {
+  color: var(--link-visited);
+}
+a:hover {
+  color: var(--link-ink);
+  text-decoration-thickness: 0.12em;
+}
+
+/* --- Headings --- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--serif);
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 2.2em 0 0.6em;
+}
+h1 {
+  font-size: 2rem;
+  letter-spacing: -0.015em;
+  margin-top: 0;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.2rem;
+}
+h4 {
+  font-size: 1.05rem;
+}
+
+/* --- Body flow --- */
+p {
+  margin: 0 0 1.1em;
+}
+ul,
+ol {
+  margin: 0 0 1.1em;
+  padding-left: 1.4em;
+}
+li {
+  margin: 0.2em 0;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2.5em 0;
+}
+
+/* --- Blockquotes / pull-quotes / epigraph --- */
+blockquote {
+  margin: 1.5em 0;
+  padding-left: 1.1em;
+  border-left: 3px solid var(--rule);
+  color: var(--muted);
+  font-style: italic;
+}
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+.pull-quote {
+  border-left: none;
+  padding: 0;
+  margin: 1.8em auto;
+  max-width: 32rem;
+  text-align: center;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--text);
+}
+.epigraph {
+  border-left: none;
+  padding-left: 0;
+  margin: 0 0 2.5em;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* --- Figures / images --- */
+img {
+  max-width: 100%;
+  height: auto;
+}
+figure {
+  margin: 2em 0;
+  text-align: center;
+}
+figure img {
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+figcaption {
+  margin-top: 0.6em;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* --- Code --- */
+code,
+pre {
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+:not(pre) > code {
+  background: var(--code-bg);
+  padding: 0.12em 0.34em;
+  border-radius: 3px;
+}
+pre {
+  margin: 1.5em 0;
+  padding: 1em 1.1em;
+  background: var(--code-bg);
+  border-radius: 5px;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* --- Tables --- */
+table {
+  width: 100%;
+  margin: 1.6em 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+th,
+td {
+  border: 1px solid var(--rule);
+  padding: 0.45em 0.7em;
+  text-align: left;
+}
+th {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* --- Footnotes (sidenote-ready) --- */
+sup a {
+  text-decoration: none;
+}
+.footnotes {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+mark {
+  background: var(--mark);
+  color: inherit;
+}
+
+/* --- Post header + index list --- */
+.post-header {
+  margin-bottom: 2.5rem;
+}
+.post-header h1 {
+  margin-bottom: 0.3rem;
+}
+.post-meta {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+.post-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.3em 0;
+}
+.post-list a {
+  text-decoration: none;
+  color: var(--text);
+}
+.post-list a:hover {
+  color: var(--link);
+}
+.post-list time {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--faint);
+  white-space: nowrap;
+}
+
+/* --- Sidenotes ------------------------------------------------------------
+   On wide viewports, sidenotes.js promotes footnotes into the right gutter and
+   adds `.has-sidenotes` to <body>. Everything below is gated on that class, so
+   without JS the native bottom footnotes remain the fallback. */
+.footnote-backref {
+  text-decoration: none;
+  margin-left: 0.3em;
+}
+.sidenote {
+  display: none;
+}
+
+@media (min-width: 76rem) {
+  /* widen the page to open a right gutter; text stays at the measure */
+  body.has-sidenotes {
+    max-width: 60rem;
+  }
+  body.has-sidenotes .masthead,
+  body.has-sidenotes .site-footer,
+  body.has-sidenotes .post-header,
+  body.has-sidenotes .post-body,
+  body.has-sidenotes .backlinks,
+  body.has-sidenotes .post-list {
+    max-width: 42rem;
+  }
+
+  body.has-sidenotes article {
+    position: relative;
+  }
+  body.has-sidenotes .footnotes {
+    display: none; /* hidden only when live sidenotes replace them */
+  }
+
+  body.has-sidenotes .sidenote {
+    display: block;
+    position: absolute;
+    left: 45rem;
+    width: 14rem;
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  body.has-sidenotes .sidenote p {
+    display: inline;
+    margin: 0;
+  }
+  body.has-sidenotes .sidenote .sidenote-num {
+    margin-right: 0.35em;
+    font-weight: 700;
+    color: var(--text);
+  }
+}
+
+/* --- Tags ------------------------------------------------------------------ */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.7rem;
+}
+.tag {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-decoration: none;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.12em 0.65em;
+}
+.tag:hover {
+  color: var(--text);
+  border-color: var(--faint);
+}
+
+.tag-index {
+  list-style: none;
+  padding: 0;
+}
+.tag-index li {
+  padding: 0.35em 0;
+}
+.tag-index a {
+  text-decoration: none;
+}
+.tag-index a:hover {
+  text-decoration: underline;
+}
+.tag-count {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--faint);
+}
+
+/* --- Backlinks ------------------------------------------------------------- */
+.backlinks {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+.backlinks h2 {
+  margin: 0 0 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.backlink-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.backlink-list li {
+  padding: 0.2em 0;
+}
+.backlink-list a {
+  text-decoration: none;
+}
+.backlink-list a:hover {
+  text-decoration: underline;
+}
+
+/* --- Reviews catalog ------------------------------------------------------- */
+.lede {
+  color: var(--muted);
+  font-style: italic;
+  margin: 0 0 1.6rem;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+.pill {
+  font: inherit;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.28em 0.9em;
+  cursor: pointer;
+}
+.pill:hover {
+  color: var(--text);
+  border-color: var(--faint);
+}
+.pill.active {
+  background: var(--link);
+  border-color: var(--link);
+  color: var(--bg);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+}
+.rev {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 1.1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.rev__cover {
+  width: 68px;
+  height: 102px;
+  border-radius: 3px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 1px 2px rgba(80, 60, 40, 0.1);
+}
+.rev__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rev__cover--ph {
+  background: linear-gradient(150deg, var(--link), var(--link-ink));
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.rev__title {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.rev__title .yr {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.rev__by {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+.rev__meta {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--faint);
+  margin: 0.2rem 0 0.55rem;
+}
+.rev__take {
+  color: var(--text);
+}
+.rev__take p {
+  margin: 0 0 0.6em;
+}
+.rev__take p:last-child {
+  margin-bottom: 0;
+}
+.rev__take.clamp {
+  max-height: 3.3em;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(#000 55%, transparent);
+  mask-image: linear-gradient(#000 55%, transparent);
+}
+.rev__foot {
+  margin-top: 0.6rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+}
+.rev-more {
+  font: inherit;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0;
+}
+.rev-more:hover {
+  color: var(--link);
+}
+.rev__foot a {
+  text-decoration: none;
+}
+.rev__foot a:hover {
+  text-decoration: underline;
+}
+
+/* --- Photos gallery -------------------------------------------------------- */
+.album-h {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin: 2rem 0 0.9rem;
+}
+.album-h h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.album-h .when {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+.gallery {
+  columns: 3 130px;
+  column-gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+.gallery .ph {
+  width: 100%;
+  margin: 0 0 0.6rem;
+  display: block;
+  border-radius: 3px;
+  break-inside: avoid;
+  box-shadow: 0 1px 2px rgba(80, 60, 40, 0.1);
+}
+
+/* --- Syntax highlighting tokens (class-based, theme-aware) ----------------- */
+:root {
+  --tk-keyword: #9333a8;
+  --tk-string: #2a7d2a;
+  --tk-number: #b5690a;
+  --tk-comment: #8a8a8a;
+  --tk-function: #2a5db0;
+  --tk-type: #0a7d7d;
+  --tk-builtin: #2a5db0;
+  --tk-constant: #b5690a;
+  --tk-variable: #7a5a00;
+  --tk-tag: #b02a2a;
+  --tk-attribute: #b5690a;
+  --tk-punct: #777;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tk-keyword: #c586c0;
+    --tk-string: #8ec98e;
+    --tk-number: #d7a06a;
+    --tk-comment: #7f7f7f;
+    --tk-function: #7aa7f0;
+    --tk-type: #4ec9b0;
+    --tk-builtin: #7aa7f0;
+    --tk-constant: #d7a06a;
+    --tk-variable: #dcdcaa;
+    --tk-tag: #e06c75;
+    --tk-attribute: #d7a06a;
+    --tk-punct: #9a9a95;
+  }
+}
+.tk-keyword {
+  color: var(--tk-keyword);
+}
+.tk-string {
+  color: var(--tk-string);
+}
+.tk-number {
+  color: var(--tk-number);
+}
+.tk-comment {
+  color: var(--tk-comment);
+  font-style: italic;
+}
+.tk-function {
+  color: var(--tk-function);
+}
+.tk-type {
+  color: var(--tk-type);
+}
+.tk-builtin {
+  color: var(--tk-builtin);
+}
+.tk-constant {
+  color: var(--tk-constant);
+}
+.tk-variable {
+  color: var(--tk-variable);
+}
+.tk-tag {
+  color: var(--tk-tag);
+}
+.tk-attribute {
+  color: var(--tk-attribute);
+}
+.tk-punct {
+  color: var(--tk-punct);
+}
+
+/* --- Link popups (Layer C) -------------------------------------------------
+   A hovered internal link with an annotation floats a card (popup.js). The
+   .link-annotated indicator is added by JS, so it only appears on hover-capable
+   devices. */
+.link-annotated {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.link-popup {
+  position: absolute;
+  z-index: 50;
+  max-width: 420px;
+  padding: 0.7rem 0.85rem 0.8rem;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  box-shadow:
+    0 6px 24px rgba(80, 60, 40, 0.16),
+    0 1px 3px rgba(80, 60, 40, 0.12);
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+}
+.link-popup.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.link-popup__title {
+  margin: 0 0 0.15rem;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.link-popup__title a {
+  color: var(--text);
+  text-decoration: none;
+}
+.link-popup__title a:hover {
+  color: var(--link-ink);
+  text-decoration: underline;
+}
+.link-popup__byline {
+  margin: 0 0 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.link-popup__abstract {
+  margin: 0;
+  color: var(--text);
+}
+
+@media (prefers-color-scheme: dark) {
+  .link-popup {
+    border-color: var(--faint);
+    box-shadow:
+      0 6px 24px rgba(0, 0, 0, 0.5),
+      0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+}
+
