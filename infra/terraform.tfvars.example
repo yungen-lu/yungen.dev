@@ -1,0 +1,11 @@
+# Copy to infra/terraform.tfvars (gitignored) and fill in.
+#
+# The API token does NOT go here. Export it in your shell before running terraform:
+#   export CLOUDFLARE_API_TOKEN=...
+# Token scope: Account > Cloudflare Pages > Edit, plus Account > Read.
+
+cloudflare_account_id = "your-account-id" # from `wrangler whoami` or the dashboard URL
+
+# Optional overrides (defaults shown):
+# project_name      = "yungen-dev"
+# production_branch = "main"

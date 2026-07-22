@@ -10,3 +10,10 @@ erl_crash.dump
 /static/photos
 /static/metadata/annotations.json
 
+# Terraform (infra/): never commit state or real tfvars (secrets); keep the lock file.
+infra/.terraform/
+infra/*.tfstate
+infra/*.tfstate.*
+infra/*.tfvars
+!infra/terraform.tfvars.example
+
